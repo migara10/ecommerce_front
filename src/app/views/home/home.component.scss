@@ -1,6 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 .banner {
-    height: 100vh;
+    height: 60vh;
+    width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    .shadow {
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.332) !important;
+        /* display: flex;
+        padding-left: 25%;
+        align-items: center; */
+        .block1 {
+            display: flex;
+            align-items: center;
+            height: 85%;
+            .heading {
+                color: white;
+                font-size: 3em;
+                font-family: "Lato", sans-serif;
+                font-weight: 700;
+                display: flex;
+                padding-left: 25%;
+                align-items: center;
+            }
+        }
+        .block2 {
+            height: 15%;
+            .hr_bar {
+                height: 100%;
+                background: white;
+                width: 80%;
+                border-top-right-radius: 40px;
+            }
+        }
+    }
 }

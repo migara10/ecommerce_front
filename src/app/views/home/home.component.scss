@@ -40,7 +40,7 @@
                     ._row {
                         height: 100%;
                         display: flex;
-                        .icon{
+                        .icon {
                             margin-right: 24px;
                             img {
                                 width: 20px;
@@ -50,20 +50,49 @@
                                 border-radius: 5px;
                             }
                         }
-                        .content{
+                        .content {
                             height: 100%;
-                            .main{
-                                color:black;
+                            .main {
+                                color: black;
                                 font-size: 1.1em;
                             }
-                            p{
-                                color:gray;
-                                margin: 6px 0px;  
+                            p {
+                                color: gray;
+                                margin: 6px 0px;
                                 font-size: 0.9em;
                             }
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.content1 {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        .item {
+            margin: 1%;
+            flex: 1 1 23%;
+            max-width: 23%;
+            box-shadow: 0 3px 6px #888;
+        }
+    }
+    @media (max-width: 800px) {
+        .container {
+            .item {
+                flex: 1 1 31%;
+                max-width: 31%;
+            }
+        }
+    }
+    @media (max-width: 400px) {
+        .container {
+            .item {
+                flex: 1 1 48%;
+                max-width: 48%;
             }
         }
     }

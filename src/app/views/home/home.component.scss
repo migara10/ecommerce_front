@@ -32,6 +32,38 @@
                 background: white;
                 width: 80%;
                 border-top-right-radius: 40px;
+                .block1 {
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 12px 96px;
+                    ._row {
+                        height: 100%;
+                        display: flex;
+                        .icon{
+                            margin-right: 24px;
+                            img {
+                                width: 20px;
+                                height: 20px;
+                                background: rgba(252, 185, 146, 0.473);
+                                padding: 6px;
+                                border-radius: 5px;
+                            }
+                        }
+                        .content{
+                            height: 100%;
+                            .main{
+                                color:black;
+                                font-size: 1.1em;
+                            }
+                            p{
+                                color:gray;
+                                margin: 6px 0px;  
+                                font-size: 0.9em;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

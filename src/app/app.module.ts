@@ -6,19 +6,22 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { TestComponent } from './views/test/test.component';
 import { NavbarComponent } from './nav/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiServiseService } from './service/api-servise.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TestComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ApiServiseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

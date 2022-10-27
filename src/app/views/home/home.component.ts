@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiseService } from 'src/app/service/api-servise.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api:ApiServiseService) { }
 
   ngOnInit(): void {
+    this.api.registerUser();
   }
 
 }

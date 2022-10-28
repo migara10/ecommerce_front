@@ -8,10 +8,21 @@ import { ApiServiseService } from 'src/app/service/api-servise.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private api:ApiServiseService) { }
+  constructor(private api: ApiServiseService) { }
 
   ngOnInit(): void {
-    this.api.registerUser();
+    this.getAllProducts();
+
+  }
+
+  getAllProducts() {
+    this.api.getresponse("get", "product", {})
+      .subscribe(res => {
+        console.log(res)
+      },
+        err => console.log(err)
+
+      )
   }
 
 }

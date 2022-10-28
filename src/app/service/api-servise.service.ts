@@ -6,7 +6,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiServiseService {
-  private API_URL = isDevMode() ? "http://localhost:3000/" : ""
+  public API_URL = isDevMode() ? "http://localhost:3000/" : ""
 
 
 

@@ -40,19 +40,7 @@
 </div>
 
 <div class="content1">
-    <div class="container">
-        <div class="item" style="background-image: url(assets/img/items/img1.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img2.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img3.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img4.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img5.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img6.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img7.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img8.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img9.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img10.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img11.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img12.png);"></div>
-        <div class="item" style="background-image: url(assets/img/items/img13.png);"></div>
+    <div class="container" *ngFor="let product of products; index as i;">
+        <div class="item" [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}"></div>
     </div>
 </div>

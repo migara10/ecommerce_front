@@ -8,13 +8,6 @@ import { ItemComponent } from '../item/item.component'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  /* public products = {
-    product_id: "",
-    product_name: "",
-    product_category: "",
-    product_disc: "",
-    product_imageuri: "",
-  }; */
   isChild: Boolean = false;
   currentItem: any;
   products: any;
@@ -23,33 +16,6 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private api: ApiServiseService, private dialog: MatDialog) { }
-
-
-  /* openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(ItemComponent, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-  } */
-  openDialog() {
-
-    const dialogConfig = new MatDialogConfig();
-
-    /* dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.position = {
-      'top': '0',
-      left: '0'
-    }; */
-    dialogConfig.data = {
-      id: 1,
-      title: 'Angular For Beginners'
-    };
-
-    this.dialog.open(ItemComponent, dialogConfig);
-  }
-
   ngOnInit(): void {
     this.getAllProducts();
 
@@ -66,14 +32,18 @@ export class HomeComponent implements OnInit {
 
       )
   }
-  openChild(product: any, enterAnimationDuration: string, exitAnimationDuration: string) {
-    this.isChild = true;
-    this.currentItem = product;
-    this.dialog.open(ItemComponent, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
+  openChild(product: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = product;
+    // dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    /* dialogConfig.position = {
+      'top': '0',
+      left: '0'
+    } */
+    dialogConfig.width = '300px';
+    dialogConfig.height = '200px';
+    this.dialog.open(ItemComponent, dialogConfig);
 
   }
 

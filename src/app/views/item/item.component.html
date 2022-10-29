@@ -2,9 +2,11 @@
     Today's item: {{it}}
 </p> -->
 
-<p >
-    Today's item:{{data.id}}
+<p>
+    Today's item:{{data._id}}
 </p>
+<button class="mat-raised-button" (click)="close()">Close</button>
+<button class="mat-raised-button mat-primary" (click)="save()">Save</button>
 
 <!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
 <div mat-dialog-content>

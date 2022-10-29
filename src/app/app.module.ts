@@ -8,6 +8,11 @@ import { TestComponent } from './views/test/test.component';
 import { NavbarComponent } from './nav/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiServiseService } from './service/api-servise.service';
+import { ItemComponent } from './views/item/item.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -15,11 +20,16 @@ import { ApiServiseService } from './service/api-servise.service';
     HomeComponent,
     TestComponent,
     NavbarComponent,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatDialogModule,
   ],
   providers: [ApiServiseService],
   bootstrap: [AppComponent]

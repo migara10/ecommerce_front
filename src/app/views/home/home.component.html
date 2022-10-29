@@ -40,7 +40,14 @@
 </div>
 
 <div class="content1">
-    <div class="container" *ngFor="let product of products; index as i;">
-        <div class="item" [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}"></div>
+    <div class="container" >
+        <div class="item" *ngFor="let product of products; index as i;" [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}" (click)="openChild(product, '0ms', '0ms')"></div>
     </div>
+    <!-- <div class="container">
+        <div class="item" style="background-image: url(assets/img/items/img1.png);"></div>
+    </div> -->
 </div>
+
+<app-item *ngIf="isChild" [item]="currentItem"></app-item>
+
+<button mat-raised-button (click)="openDialog()">Open dialog without animation</button>

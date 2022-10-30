@@ -1,0 +1,84 @@
+.item {
+    margin: 1%;
+    flex: 1 1 23%;
+    max-width: 23%;
+    box-shadow: 0 3px 6px #888;
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.size123 {
+    .aaa {
+        display: flex;
+    }
+    .container {
+        display: flex;
+        
+    }
+}
+
+.content1 {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        .itemz {
+            width: 50px;
+            .container{
+                position:relative;
+                width:100%;
+                height:100%;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+            .selector{
+                position:relative;
+                width:60%;
+                height:80px;
+                display:flex;
+                justify-content:space-around;
+                align-items:center;
+                border-radius:9999px;
+                box-shadow:0 0 16px rgba(0,0,0,.2);
+            }
+            .selecotr-item{
+                flex-basis:calc(70% / 3);
+                height:100%;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+            .selector-item_radio{
+                appearance:none;
+                display:none;
+            }
+            .selector-item_label{
+                height:80%;
+                width:100%;
+                text-align:center;
+                border-radius:10px;
+                line-height:400%;
+                font-weight:900;
+                transition-duration:.5s;
+                transition-property:transform, color, box-shadow;
+                transform:none;
+                background: rgb(174, 174, 174);
+            }
+            .selector-item_radio:checked + .selector-item_label{
+                background-color:rgb(34, 143, 207);
+                color:white;
+                box-shadow:0 0 4px rgba(0,0,0,.5),0 2px 4px rgba(0,0,0,.5);
+                transform:translateY(-2px);
+            }
+            @media (max-width:480px) {
+                .selector{
+                    width: 90%;
+                }
+            }
+            
+        }
+    }
+}

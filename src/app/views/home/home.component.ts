@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiServiseService } from 'src/app/service/api-servise.service';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ItemComponent } from '../item/item.component'
+declare var $: any
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +19,33 @@ export class HomeComponent implements OnInit {
   constructor(private api: ApiServiseService, private dialog: MatDialog) { }
   ngOnInit(): void {
     this.getAllProducts();
+    /* var $buttonRow1 = $('.button-row1');
+    var $activeButton1 = $buttonRow1.find('.button.is-active');
 
+    $buttonRow1.on('click', '.button',  (event: any) => {
+      // deactivate previous button
+      $activeButton1.removeClass('is-active');
+      // set & activate new button
+      $activeButton1 = $(this);
+      $activeButton1.addClass('is-active');
+    }); */
+    
+
+  }
+
+  btnActive() {
+    $('.button-row').each( () => {
+      var $buttonRow = $( this );
+      var $activeButton = $buttonRow.find('.button.is-active');
+    
+      $buttonRow.on( 'click', '.button', ( event: any ) => {
+        // deactivate previous button
+        $activeButton.removeClass('is-active');
+        // set & activate new button
+        $activeButton = $( this );
+        $activeButton.addClass('is-active');
+      });
+    });
   }
 
   getAllProducts() {
@@ -36,13 +63,13 @@ export class HomeComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = product;
     // dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
+    // dialogConfig.autoFocus = true;
     /* dialogConfig.position = {
       'top': '0',
       left: '0'
     } */
-    dialogConfig.width = '300px';
-    dialogConfig.height = '200px';
+    dialogConfig.width = '800px';
+    dialogConfig.height = '600px';
     this.dialog.open(ItemComponent, dialogConfig);
 
   }

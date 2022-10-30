@@ -5,18 +5,26 @@
 <p>
     Today's item:{{data._id}}
 </p>
+<div class="item" [ngStyle]="{'background-image': 'url(' + baseUri  + data.product_imageuri +')'}"></div>
 <button class="mat-raised-button" (click)="close()">Close</button>
-<button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+<!-- <button class="mat-raised-button mat-primary" (click)="save()">Save</button> -->
 
-<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+
+<!-- <div class="size123" *ngFor="let item of data.productbyItem; index as i;">
+    <div class="container1">
+        <div class="selecotr-item">
+            <input type="radio" id={{item.item_name}} name="selector" class="selector-item_radio">
+            <label for={{item.item_name}} class="selector-item_label">{{item.item_name}}</label>
+        </div>
+    </div>
 </div> -->
+<div class="content1">
+    <div class="container">
+        <div class="itemz" *ngFor="let item of data.productbyItem; index as i;">
+            <div class="selecotr-item">
+                <input type="radio" id={{item.item_name}} name="selector" class="selector-item_radio">
+                <label for={{item.item_name}} class="selector-item_label">{{item.item_name}}</label>
+            </div>
+        </div>
+    </div>
+</div>

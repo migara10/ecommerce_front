@@ -27,12 +27,9 @@
    --color-blue-800: hsl(226, 71%, 40%);
    --color-blue-900: hsl(224, 64%, 33%);
 
-   --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px 0 rgba(0, 0, 0, 0.06);
-   --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
-   --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+   --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+   --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+   --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 *,
@@ -384,13 +381,30 @@ video {
    }
 }
 
-.icons{
+.icons {
    display: flex;
-   .cart_icon, .search_icon{
-      width: 20px;
-      height: 20px;
-      margin-left: 12px;
+   div {
+      .cart_icon,
+      .search_icon {
+         width: 20px;
+         height: 20px;
+         margin-left: 12px;
+      }
+      .cart_icon{
+         position: absolute;
+      }
+      .qty_notificatn{
+         border-radius: 50%;
+         width: 25px;
+         height: 25px;
+         background-color: red;
+         color: white;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         position: relative;
+         top:-15px;
+         right:-25px;
+      }
    }
 }
-
-

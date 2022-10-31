@@ -45,31 +45,38 @@ export class NavbarComponent implements OnInit {
          }); */
       }
 
-     /*  // Open Close Navbar Menu on Click Burger
-      if (burgerMenu && navbarMenu) {
-         burgerMenu.addEventListener("click", () => {
-            burgerMenu.classList.toggle("is-active");
-            navbarMenu.classList.toggle("is-active");
-         });
-      }
-
-      // Close Navbar Menu on Click Menu Links
-      document.querySelectorAll(".menu-link").forEach((link) => {
-         link.addEventListener("click", () => {
-            burgerMenu.classList.remove("is-active");
-            navbarMenu.classList.remove("is-active");
-         });
-      });
-
-      // Change Header Background on Scrolling
-      window.addEventListener("scroll", () => {
-         var scrollY = $(window).scrollTop();
-         if (scrollY >= 85) {
-            headerMenu.classList.add("on-scroll");
-         } else {
-            headerMenu.classList.remove("on-scroll");
-         }
-      }); */
+      /*  // Open Close Navbar Menu on Click Burger
+       if (burgerMenu && navbarMenu) {
+          burgerMenu.addEventListener("click", () => {
+             burgerMenu.classList.toggle("is-active");
+             navbarMenu.classList.toggle("is-active");
+          });
+       }
+ 
+       // Close Navbar Menu on Click Menu Links
+       document.querySelectorAll(".menu-link").forEach((link) => {
+          link.addEventListener("click", () => {
+             burgerMenu.classList.remove("is-active");
+             navbarMenu.classList.remove("is-active");
+          });
+       });
+ 
+       // Change Header Background on Scrolling
+       window.addEventListener("scroll", () => {
+          var scrollY = $(window).scrollTop();
+          if (scrollY >= 85) {
+             headerMenu.classList.add("on-scroll");
+          } else {
+             headerMenu.classList.remove("on-scroll");
+          }
+       }); */
+   }
+   ngOnChanges() {
+      this.getItemQty();
+   }
+   getItemQty() {
+      const items = JSON.parse(localStorage.getItem("PendingOrder") || "[]")
+      return items.length;
    }
 
 }

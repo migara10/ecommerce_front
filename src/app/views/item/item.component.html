@@ -7,44 +7,31 @@
 </p>
 <div class="item" [ngStyle]="{'background-image': 'url(' + baseUri  + data.product_imageuri +')'}"></div>
 <button class="mat-raised-button" (click)="close()">Close</button>
-<!-- <button class="mat-raised-button mat-primary" (click)="save()">Save</button> -->
 
-
-<!-- <div class="size123" *ngFor="let item of data.productbyItem; index as i;">
-    <div class="container1">
-        <div class="selecotr-item">
-            <input type="radio" id={{item.item_name}} name="selector" class="selector-item_radio">
-            <label for={{item.item_name}} class="selector-item_label">{{item.item_name}}</label>
-        </div>
-    </div>
-</div> -->
-<!-- <div class="content1">
-    <div class="container">
-        <div class="itemz" *ngFor="let item of data.productbyItem; index as i;">
-            <div class="selecotr-item">
-                <input type="radio" id={{item.item_name}} name="selector" class="selector-item_radio">
-                <label for={{item.item_name}} class="selector-item_label">{{item.item_name}}</label>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!-- <div class="content1">
-    <div class="container">
-        <div class="itemz" *ngFor="let item of data.productbyItem; index as i;">
-            <input type="radio" class="stv-radio-button" name="radioButtonTest" value="1" id="{{item.item_name}}"
-                checked />
-            <label for="{{item.item_name}}">{{item.item_name}}</label>
-        </div>
-    </div>
-</div> -->
 <div class="content1">
     <div class="container">
         <div class="itemz" *ngFor="let item of items; index as i;">
             <div class="button">
                 <input type="radio" id="{{item.item_name}}" name="check-substitution-2" />
-                <label class="btn btn-default" for="{{item.item_name}}" (click)="selectSize(item)">{{item.item_name}}</label>
-              </div>
+                <label class="btn btn-default" for="{{item.item_name}}"
+                    (click)="selectSize(item)">{{item.item_name}}</label>
+            </div>
         </div>
     </div>
+    <!-- <div class="input_qty">
+        <input type="text" [(ngModel)]="selectQty">
+    </div> -->
+    <div class="input_qty" *ngIf="isSelect">
+        <div class="number d-flex justify-content-center align-items-center">
+            <span class="minus d-flex justify-content-center pr-2 pl-2"
+                (click)="1 >= selectQty?'':decrementQty()">-</span>
+            <input type="text" [(ngModel)]="selectQty" disabled>
+            <span class="plus d-flex justify-content-center pr-2 pl-2"
+                (click)="selectQty >= maxLength? '': incrementQty()">+</span>
+        </div>
+    </div>
+</div>
+
+<div class="add_qty">
+    <button (click)="addToCart(selectQty)">Add to cart</button>
 </div>

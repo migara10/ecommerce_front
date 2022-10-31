@@ -15,34 +15,6 @@
         display: flex;
         flex-wrap: wrap;
         .itemz {
-            /* .stv-radio-button {
-                appearance: none;
-                display: none;
-
-                & + label {
-                    cursor: pointer;
-                    border: 1px solid #28608f;
-                    color: #fff;
-                    background-color: #428bca;
-                    margin: 0 6px;
-
-                    &:first-of-type {
-                        border-radius: 0.7em 0 0 0.7em;
-                    }
-
-                    &:last-of-type {
-                        border-radius: 0 0.7em 0.7em 0;
-                    }
-                }
-
-                &:checked + label {
-                    background-color: #3277b3;
-                }
-            }
-            label {
-                width: 50px !important;
-                padding: 12px 24px;
-            } */
             .button {
                 margin: 0 5px 0 0;
                 width: 30px;
@@ -73,4 +45,9 @@
             }
         }
     }
+    .input_qty{
+        margin-top: 30px;
+    }
 }
+
+

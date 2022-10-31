@@ -10,19 +10,21 @@ import { ApiServiseService } from 'src/app/service/api-servise.service';
 export class ItemComponent implements OnInit {
   description: string = "";
   baseUri = this.api.API_URL;
+  items : any;
   @Input()
   public item: any = {}; // decorate the property with @Input()
   // public items: any; // decorate the property with @Input()
   constructor(public dialogRef: MatDialogRef<ItemComponent>, @Inject(MAT_DIALOG_DATA) public data: any,private api: ApiServiseService) { }
 
   ngOnInit(): void {
-    console.log(this.data)
+    // this.items = this.data.productbyItem;
+    this.items = this.data.productbyItem.filter((data: any) => data.item_qty != 0)
   }
 
   ngOnChanges() {
   }
 
-  selectSize(item: any) {
+  selectSize(item: any){
     console.log(item)
   }
   save() {

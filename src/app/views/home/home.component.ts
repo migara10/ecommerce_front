@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ApiServiseService } from 'src/app/service/api-servise.service';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ItemComponent } from '../item/item.component'
-declare var $: any
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -31,21 +30,6 @@ export class HomeComponent implements OnInit {
     }); */
     
 
-  }
-
-  btnActive() {
-    $('.button-row').each( () => {
-      var $buttonRow = $( this );
-      var $activeButton = $buttonRow.find('.button.is-active');
-    
-      $buttonRow.on( 'click', '.button', ( event: any ) => {
-        // deactivate previous button
-        $activeButton.removeClass('is-active');
-        // set & activate new button
-        $activeButton = $( this );
-        $activeButton.addClass('is-active');
-      });
-    });
   }
 
   getAllProducts() {

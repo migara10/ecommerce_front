@@ -10,75 +10,67 @@
     background-size: cover;
 }
 
-.size123 {
-    .aaa {
-        display: flex;
-    }
-    .container {
-        display: flex;
-        
-    }
-}
-
 .content1 {
     .container {
         display: flex;
         flex-wrap: wrap;
         .itemz {
-            width: 50px;
-            .container{
-                position:relative;
-                width:100%;
-                height:100%;
-                display:flex;
-                justify-content:center;
-                align-items:center;
-            }
-            .selector{
-                position:relative;
-                width:60%;
-                height:80px;
-                display:flex;
-                justify-content:space-around;
-                align-items:center;
-                border-radius:9999px;
-                box-shadow:0 0 16px rgba(0,0,0,.2);
-            }
-            .selecotr-item{
-                flex-basis:calc(70% / 3);
-                height:100%;
-                display:flex;
-                justify-content:center;
-                align-items:center;
-            }
-            .selector-item_radio{
-                appearance:none;
-                display:none;
-            }
-            .selector-item_label{
-                height:80%;
-                width:100%;
-                text-align:center;
-                border-radius:10px;
-                line-height:400%;
-                font-weight:900;
-                transition-duration:.5s;
-                transition-property:transform, color, box-shadow;
-                transform:none;
-                background: rgb(174, 174, 174);
-            }
-            .selector-item_radio:checked + .selector-item_label{
-                background-color:rgb(34, 143, 207);
-                color:white;
-                box-shadow:0 0 4px rgba(0,0,0,.5),0 2px 4px rgba(0,0,0,.5);
-                transform:translateY(-2px);
-            }
-            @media (max-width:480px) {
-                .selector{
-                    width: 90%;
+            /* .stv-radio-button {
+                appearance: none;
+                display: none;
+
+                & + label {
+                    cursor: pointer;
+                    border: 1px solid #28608f;
+                    color: #fff;
+                    background-color: #428bca;
+                    margin: 0 6px;
+
+                    &:first-of-type {
+                        border-radius: 0.7em 0 0 0.7em;
+                    }
+
+                    &:last-of-type {
+                        border-radius: 0 0.7em 0.7em 0;
+                    }
+                }
+
+                &:checked + label {
+                    background-color: #3277b3;
                 }
             }
-            
+            label {
+                width: 50px !important;
+                padding: 12px 24px;
+            } */
+            .button {
+                margin: 0 5px 0 0;
+                width: 30px;
+                height: 15px;
+                position: relative;
+                label,
+                input {
+                    display: block;
+                }
+                input[type="radio"] {
+                    opacity: 0.011;
+                    z-index: 100;
+                }
+                input[type="radio"]:checked + label {
+                    background: #20b8be;
+                    border-radius: 4px;
+                }
+                label {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    z-index: 90;
+                    line-height: 1.8em;
+                    background: #919191;
+                    border-radius: 4px;
+                }
+            }
         }
     }
 }

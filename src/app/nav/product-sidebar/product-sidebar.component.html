@@ -1,0 +1,7 @@
+<div class="pending_order">
+    <div class="item" *ngFor="let item of items; index as i;"
+        [ngStyle]="{'background-image': 'url(' + baseUri + item.product_imageuri +')'}"
+    >
+    <button (click)="removeItem(item)">remove</button>
+    </div>
+</div>

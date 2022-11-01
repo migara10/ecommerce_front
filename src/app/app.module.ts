@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { TestComponent } from './views/test/test.component';
 import { NavbarComponent } from './nav/navbar/navbar.component';
+import { ProductSidebarComponent } from './nav/product-sidebar/product-sidebar.component'
 import { HttpClientModule } from '@angular/common/http';
 import { ApiServiseService } from './service/api-servise.service';
 import { ItemComponent } from './views/item/item.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MaterialModule } from './material.module'
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     TestComponent,
     NavbarComponent,
     ItemComponent,
+    ProductSidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatSliderModule,
     MatDialogModule,
+    MaterialModule,
   ],
   providers: [ApiServiseService],
   bootstrap: [AppComponent]

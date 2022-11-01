@@ -23,7 +23,6 @@ export class ItemComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ItemComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private api: ApiServiseService) { }
 
   ngOnInit(): void {
-
     this.items = this.data.productbyItem.filter((data: any) => data.item_qty != 0);
     /* let users = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
     users.forEach((data: any) => {
@@ -56,18 +55,22 @@ export class ItemComponent implements OnInit {
       //console.log(dataq.length)
       if (dataq.length >= 1) {
         // console.log(this.arr)
-        const index = this.arr.findIndex((x: any) => x.data.item_id ===this.selectedItem.item_id);
+        const index = this.arr.findIndex((x: any) => x.data.item_id === this.selectedItem.item_id);
         // console.log(this.arr[index])
         const tempQty = this.arr[index].qty + qty
         // console.log(this.maxLength)
-        if(tempQty <= this.maxLength) {
+        if (tempQty <= this.maxLength) {
           this.arr[index].qty = tempQty
         }
         localStorage.setItem('PendingOrder', JSON.stringify(this.arr));
       } else {
         const order = {
           data: this.selectedItem,
-          qty: qty
+          qty: qty,
+          product_imageuri: this.data.product_imageuri,
+          product_category: this.data.product_category,
+          product_disc: this.data.product_disc,
+          product_name: this.data.product_name
         }
         this.arr.push(order);
         localStorage.setItem('PendingOrder', JSON.stringify(this.arr));
@@ -75,7 +78,11 @@ export class ItemComponent implements OnInit {
     } else {
       const order = {
         data: this.selectedItem,
-        qty: qty
+        qty: qty,
+        product_imageuri: this.data.product_imageuri,
+        product_category: this.data.product_category,
+        product_disc: this.data.product_disc,
+        product_name: this.data.product_name
       }
       this.arr.push(order);
       localStorage.setItem('PendingOrder', JSON.stringify(this.arr));

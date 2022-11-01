@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import {ProductSidebarComponent} from "../product-sidebar/product-sidebar.component"
 declare var $: any
 @Component({
    selector: 'app-navbar',
@@ -7,7 +9,7 @@ declare var $: any
 })
 export class NavbarComponent implements OnInit {
 
-   constructor() { }
+   constructor( private dialog: MatDialog) { }
 
    ngOnInit(): void {
       /* $(function () {
@@ -45,31 +47,51 @@ export class NavbarComponent implements OnInit {
          }); */
       }
 
-     /*  // Open Close Navbar Menu on Click Burger
-      if (burgerMenu && navbarMenu) {
-         burgerMenu.addEventListener("click", () => {
-            burgerMenu.classList.toggle("is-active");
-            navbarMenu.classList.toggle("is-active");
-         });
-      }
-
-      // Close Navbar Menu on Click Menu Links
-      document.querySelectorAll(".menu-link").forEach((link) => {
-         link.addEventListener("click", () => {
-            burgerMenu.classList.remove("is-active");
-            navbarMenu.classList.remove("is-active");
-         });
-      });
-
-      // Change Header Background on Scrolling
-      window.addEventListener("scroll", () => {
-         var scrollY = $(window).scrollTop();
-         if (scrollY >= 85) {
-            headerMenu.classList.add("on-scroll");
-         } else {
-            headerMenu.classList.remove("on-scroll");
-         }
-      }); */
+      /*  // Open Close Navbar Menu on Click Burger
+       if (burgerMenu && navbarMenu) {
+          burgerMenu.addEventListener("click", () => {
+             burgerMenu.classList.toggle("is-active");
+             navbarMenu.classList.toggle("is-active");
+          });
+       }
+ 
+       // Close Navbar Menu on Click Menu Links
+       document.querySelectorAll(".menu-link").forEach((link) => {
+          link.addEventListener("click", () => {
+             burgerMenu.classList.remove("is-active");
+             navbarMenu.classList.remove("is-active");
+          });
+       });
+ 
+       // Change Header Background on Scrolling
+       window.addEventListener("scroll", () => {
+          var scrollY = $(window).scrollTop();
+          if (scrollY >= 85) {
+             headerMenu.classList.add("on-scroll");
+          } else {
+             headerMenu.classList.remove("on-scroll");
+          }
+       }); */
    }
+   ngOnChanges() {
+      this.getItemQty();
+   }
+   getItemQty() {
+      const items = JSON.parse(localStorage.getItem("PendingOrder") || "[]")
+      return items.length;
+   }
+   openSideBar() {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.position = {
+        'top': '0',
+        right: '0'
+      }
+      dialogConfig.width = '300px';
+      dialogConfig.height = '100%';
+      dialogConfig.enterAnimationDuration="0.5s"
+      dialogConfig.exitAnimationDuration="0.5s"
+      this.dialog.open(ProductSidebarComponent, dialogConfig);
+  
+    }
 
 }

@@ -43,7 +43,8 @@
     <div class="container">
         <div class="item" *ngFor="let product of products; index as i;"
             [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}"
-            (click)="openChild(product)"></div>
+            (click)="openChild(product)">
+        </div>
     </div>
     <!-- <div class="container">
         <div class="item" style="background-image: url(assets/img/items/img1.png);"></div>
@@ -53,4 +54,3 @@
 <!-- <app-item *ngIf="isChild" [item]="currentItem"></app-item> -->
 
 <!-- <button mat-raised-button (click)="openDialog()">Open dialog without animation</button> -->
-

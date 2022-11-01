@@ -18,10 +18,11 @@
          <div>
             <img src="assets/img/icons/search.png" alt="" class="search_icon">
          </div>
-         <div>
+         <div (click)="openSideBar()">
             <img src="assets/img/icons/cart.png" alt="" class="cart_icon">
-            <div class="qty_notificatn">{{getItemQty()}}</div>
+            <div *ngIf="getItemQty() > 0" class="qty_notificatn">{{getItemQty()}}</div>
          </div>
       </div>
    </nav>
 </header>
+

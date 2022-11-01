@@ -36,8 +36,6 @@ export class HomeComponent implements OnInit {
     this.api.getresponse("get", "product", {})
       .subscribe(res => {
         this.products = res.data;
-        console.log(this.products)
-        console.log(this.api.API_URL)
       },
         err => console.log(err)
 

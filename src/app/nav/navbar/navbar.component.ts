@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import {ProductSidebarComponent} from "../product-sidebar/product-sidebar.component"
 declare var $: any
 @Component({
    selector: 'app-navbar',
@@ -7,7 +9,7 @@ declare var $: any
 })
 export class NavbarComponent implements OnInit {
 
-   constructor() { }
+   constructor( private dialog: MatDialog) { }
 
    ngOnInit(): void {
       /* $(function () {
@@ -78,5 +80,18 @@ export class NavbarComponent implements OnInit {
       const items = JSON.parse(localStorage.getItem("PendingOrder") || "[]")
       return items.length;
    }
+   openSideBar() {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.position = {
+        'top': '0',
+        right: '0'
+      }
+      dialogConfig.width = '300px';
+      dialogConfig.height = '100%';
+      dialogConfig.enterAnimationDuration="0.5s"
+      dialogConfig.exitAnimationDuration="0.5s"
+      this.dialog.open(ProductSidebarComponent, dialogConfig);
+  
+    }
 
 }

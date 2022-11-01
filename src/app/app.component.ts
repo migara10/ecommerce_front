@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  showFiller = false;
   title = 'ecommerce_front';
 }

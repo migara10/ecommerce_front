@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       $activeButton1 = $(this);
       $activeButton1.addClass('is-active');
     }); */
-    
+
 
   }
 

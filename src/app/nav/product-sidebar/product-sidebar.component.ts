@@ -15,16 +15,26 @@ export class ProductSidebarComponent implements OnInit {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
   }
 
-  removeItem(item: any){
+  removeItem(item: any) {
     const index = this.items.findIndex((x: any) => x.data.item_id === item.data.item_id);
     this.items.splice(index, 1);
     localStorage.removeItem("PendingOrder");
     localStorage.setItem('PendingOrder', JSON.stringify(this.items));
   }
-  checkoutCart(){
+  checkoutCart() {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
-    console.log(this.items)
+    this.saveAllCartItems(this.items);
 
+  }
+
+  saveAllCartItems(items: any) {
+    this.api.getresponse("put", "item", items)
+      .subscribe(res => {
+        localStorage.removeItem("PendingOrder");
+      },
+        err => console.log(err)
+
+      )
   }
 
 }

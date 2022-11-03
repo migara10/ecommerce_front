@@ -1,12 +1,16 @@
-<div class="pending_order">
-    <div class="item" *ngFor="let item of items; index as i;"
+<div class="pending_order" *ngFor="let item of items; index as i;">
+    <div class="item"
         [ngStyle]="{'background-image': 'url(' + baseUri + item.product_imageuri +')'}"
     >
-    <button (click)="removeItem(item)">remove</button>
+    </div>
+    <div class="details">
+        <p class="item_name">{{item.product_name}}</p>
+        <p class="item_size">Size - {{item.data.item_name}}</p>
+        <p class="item_qty">Qty - {{item.qty}}</p>
+        <button class="remove_btn" (click)="removeItem(item)">remove</button>
     </div>
 </div>
 
-
-<div class="ckeckout">
+<div *ngIf="!isEmpty" class="ckeckout">
     <button (click)="checkoutCart()">CheckOut</button>
 </div>

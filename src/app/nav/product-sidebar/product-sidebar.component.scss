@@ -1,9 +1,30 @@
 .pending_order{
+    display: flex;
+    margin-bottom: 24px;
     .item {
         height: 100px;
-        width: 100%;
+        width: 80px;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+    }
+    .details{
+        padding: 6px 12px;
+        p{
+            margin-bottom: 3px;
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+        /* .item_name, .item_size{
+            text-transform: capitalize;
+            font-weight: 500;
+        } */
+        .remove_btn{
+            border-radius: 4px;
+            background: red;
+            border: none;
+            outline: none;
+            padding: 3px 6px;
+        }
     }
 }

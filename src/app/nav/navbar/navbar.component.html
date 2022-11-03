@@ -18,7 +18,7 @@
          <div>
             <img src="assets/img/icons/search.png" alt="" class="search_icon">
          </div>
-         <div (click)="openSideBar()">
+         <div (click)="getItemQty() ? openSideBar(): '' ">
             <img src="assets/img/icons/cart.png" alt="" class="cart_icon">
             <div *ngIf="getItemQty() > 0" class="qty_notificatn">{{getItemQty()}}</div>
          </div>

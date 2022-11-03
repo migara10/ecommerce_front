@@ -9,10 +9,12 @@ import { ApiServiseService } from 'src/app/service/api-servise.service';
 export class ProductSidebarComponent implements OnInit {
   items: any = [];
   baseUri = this.api.API_URL;
+  isEmpty = true;
   constructor(private api: ApiServiseService, public dialogRef: MatDialogRef<ProductSidebarComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
+    this.isEmpty = this.items.length? false: true;
   }
 
   removeItem(item: any) {
@@ -20,6 +22,11 @@ export class ProductSidebarComponent implements OnInit {
     this.items.splice(index, 1);
     localStorage.removeItem("PendingOrder");
     localStorage.setItem('PendingOrder', JSON.stringify(this.items));
+    this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
+    this.isEmpty = this.items.length? false: true;
+    if(this.isEmpty){
+      this.dialogRef.close();
+    }
   }
   checkoutCart() {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");

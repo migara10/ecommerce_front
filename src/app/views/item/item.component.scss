@@ -1,53 +1,131 @@
-.item {
-    margin: 1%;
-    flex: 1 1 23%;
-    max-width: 23%;
-    box-shadow: 0 3px 6px #888;
-    height: 300px;
+._main {
+    display: flex;
     width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
+    height: 100%;
+    .item {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 50%;
+        height: 100%;
+    }
 
-.content1 {
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        .itemz {
-            .button {
-                margin: 0 5px 0 0;
-                width: 30px;
-                height: 15px;
-                position: relative;
-                label,
-                input {
-                    display: block;
+    .row_2 {
+        width: 50%;
+        .close_bar {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            .close_btn {
+                background-image: url(../../../assets//img/icons/close.png);
+                width: 20px;
+                height: 20px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                cursor: pointer;
+            }
+        }
+        .block {
+            padding: 0 24px;
+            .content1 {
+                .item_details {
+                    .item_name {
+                        text-transform: capitalize;
+                    }
+                    .item_dec {
+                        margin-bottom: 24px;
+                    }
+                    .select_banner {
+                        color: rgb(255, 0, 0);
+                        font-weight: 500;
+                    }
+                    .select_banner1 {
+                        color: rgb(5, 165, 43);
+                        font-weight: 500;
+                    }
                 }
-                input[type="radio"] {
-                    opacity: 0.011;
-                    z-index: 100;
+                .qty_row {
+                    width: 100%;
+                    .container {
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding: 0;
+                        /* position: absolute; */
+                        .itemz {
+                            .button {
+                                margin: 0 5px 0 0;
+                                width: 30px;
+                                height: 15px;
+                                position: relative;
+                                margin-right: 24px;
+                                label,
+                                input {
+                                    display: block;
+                                }
+                                input[type="radio"] {
+                                    opacity: 0.011;
+                                    z-index: 100;
+                                }
+                                input[type="radio"]:checked + label {
+                                    background: #20b8be;
+                                    border-radius: 4px;
+                                }
+                                label {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    cursor: pointer;
+                                    z-index: 90;
+                                    line-height: 1.8em;
+                                    background: #919191;
+                                    border-radius: 4px;
+                                }
+                                .size_btn {
+                                    padding: 12px 24px;
+                                }
+                            }
+                        }
+                    }
+                    .input_qty {
+                        margin-top: 60px;
+                        width: 100%;
+                        display: inline-block;
+                        /* position: relative;
+                        top: 10px;
+                        right: 0px; */
+                        .number {
+                            display: flex;
+                            justify-content: space-between;
+                            input {
+                                border: 1px solid black;
+                                text-align: center;
+                                font-size: 1.5em;
+                                width: 60%;
+                            }
+                            span {
+                                margin-left: 6px;
+                                border: 1px solid black;
+                                padding: 12px 24px;
+                                font-size: 1.5em;
+                            }
+                        }
+                    }
                 }
-                input[type="radio"]:checked + label {
-                    background: #20b8be;
+            }
+            .add_qty {
+                width: 100%;
+                button {
+                    width: 100%;
                     border-radius: 4px;
-                }
-                label {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    cursor: pointer;
-                    z-index: 90;
-                    line-height: 1.8em;
-                    background: #919191;
-                    border-radius: 4px;
+                    background: rgb(0, 0, 0);
+                    color: white;
+                    border: none;
+                    outline: none;
+                    margin-top: 12px;
+                    padding: 12px 24px;
                 }
             }
         }
     }
-    .input_qty{
-        margin-top: 30px;
-    }
 }
-
-

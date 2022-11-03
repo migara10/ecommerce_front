@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       left: '0'
     } */
     dialogConfig.width = '800px';
-    dialogConfig.height = '600px';
+    dialogConfig.height = '500px';
     this.dialog.open(ItemComponent, dialogConfig);
 
   }

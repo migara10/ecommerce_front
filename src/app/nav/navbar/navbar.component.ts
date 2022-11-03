@@ -8,10 +8,11 @@ declare var $: any
    styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+   isFalse = false
    constructor( private dialog: MatDialog) { }
 
    ngOnInit(): void {
+      
       /* $(function () {
          $(window).scroll(function () {
            var scroll1 = $(window).scrollTop();

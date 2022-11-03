@@ -24,10 +24,7 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.data.productbyItem.filter((data: any) => data.item_qty != 0);
-    /* let users = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
-    users.forEach((data: any) => {
-      console.log(data)
-    }); */
+    this.items.sort((a:any, b:any) => (a.item_id.split('/')[1]) - (b.item_id.split('/')[1]));
   }
 
   ngOnChanges() {

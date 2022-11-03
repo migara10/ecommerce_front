@@ -31,6 +31,8 @@ export class ProductSidebarComponent implements OnInit {
     this.api.getresponse("put", "item", items)
       .subscribe(res => {
         localStorage.removeItem("PendingOrder");
+        this.dialogRef.close();
+        window.location.reload();
       },
         err => console.log(err)
 

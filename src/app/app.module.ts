@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MaterialModule } from './material.module'
+import { MaterialModule } from './material.module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MaterialModule } from './material.module'
     MatSliderModule,
     MatDialogModule,
     MaterialModule,
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [ApiServiseService],
   bootstrap: [AppComponent]

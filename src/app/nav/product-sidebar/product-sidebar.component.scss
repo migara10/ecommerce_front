@@ -61,3 +61,17 @@
         }
     }
 }
+.close_bar {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    .close_btn {
+        background-image: url(../../../assets/img/icons/close.png);
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+    }
+}

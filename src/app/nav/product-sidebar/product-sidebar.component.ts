@@ -16,7 +16,7 @@ export class ProductSidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
-    this.isEmpty = this.items.length? false: true;
+    this.isEmpty = this.items.length ? false : true;
     // console.log(this.items)
   }
 
@@ -35,8 +35,8 @@ export class ProductSidebarComponent implements OnInit {
     localStorage.removeItem("PendingOrder");
     localStorage.setItem('PendingOrder', JSON.stringify(this.items));
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
-    this.isEmpty = this.items.length? false: true;
-    if(this.isEmpty){
+    this.isEmpty = this.items.length ? false : true;
+    if (this.isEmpty) {
       this.dialogRef.close();
     }
   }
@@ -58,6 +58,9 @@ export class ProductSidebarComponent implements OnInit {
         err => console.log(err)
 
       )
+  }
+  close() {
+    this.dialogRef.close();
   }
 
 }

@@ -1,3 +1,6 @@
+<div class="close_bar">
+    <div class="close_btn" (click)="close()"></div>
+</div>
 <div class="pending_order" *ngFor="let item of items; index as i;">
     <div class="_row1">
         <div class="item" [ngStyle]="{'background-image': 'url(' + baseUri + item.product_imageuri +')'}">

@@ -7,8 +7,13 @@
         <p class="item_name">{{item.product_name}}</p>
         <p class="item_size">Size - {{item.data.item_name}}</p>
         <p class="item_qty">Qty - {{item.qty}}</p>
+        <p class="item_qty">Total - {{item.total_price}}</p>
         <button class="remove_btn" (click)="removeItem(item)">remove</button>
     </div>
+</div>
+
+<div class="last_total">
+    last total= {{getTotal()}}
 </div>
 
 <div *ngIf="!isEmpty" class="ckeckout">

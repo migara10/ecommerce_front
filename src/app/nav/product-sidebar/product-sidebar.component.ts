@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ApiServiseService } from 'src/app/service/api-servise.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-product-sidebar',
   templateUrl: './product-sidebar.component.html',
@@ -10,11 +12,21 @@ export class ProductSidebarComponent implements OnInit {
   items: any = [];
   baseUri = this.api.API_URL;
   isEmpty = true;
-  constructor(private api: ApiServiseService, public dialogRef: MatDialogRef<ProductSidebarComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private router: Router, private api: ApiServiseService, public dialogRef: MatDialogRef<ProductSidebarComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
     this.isEmpty = this.items.length? false: true;
+    // console.log(this.items)
+  }
+
+  getTotal() {
+    let tot = 0
+    this.items.forEach((element: any) => {
+      console.log(element.total_price)
+      tot = element.total_price + tot
+    });
+    return tot;
   }
 
   removeItem(item: any) {
@@ -29,8 +41,10 @@ export class ProductSidebarComponent implements OnInit {
     }
   }
   checkoutCart() {
-    this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
-    this.saveAllCartItems(this.items);
+    /* this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
+    this.saveAllCartItems(this.items); */
+    this.dialogRef.close();
+    this.router.navigate(['checkout']);
 
   }
 

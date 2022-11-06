@@ -10,6 +10,7 @@ import { ProductSidebarComponent } from './nav/product-sidebar/product-sidebar.c
 import { HttpClientModule } from '@angular/common/http';
 import { ApiServiseService } from './service/api-servise.service';
 import { ItemComponent } from './views/item/item.component';
+import { CheckoutComponent } from './views/checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
@@ -24,6 +25,7 @@ import { MaterialModule } from './material.module'
     NavbarComponent,
     ItemComponent,
     ProductSidebarComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

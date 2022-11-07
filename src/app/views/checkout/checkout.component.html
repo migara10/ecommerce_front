@@ -52,10 +52,38 @@
             </div>
             <div class="forms">
                 <div>
-                    <button>Proccess Order</button>
+                    <button>Process Order</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="_row2">2</div>
+    <div class="_row2">
+        <div class="block1">
+            <div class="pending_order" *ngFor="let item of items; index as i;">
+                <div class="_row3">
+                    <div class="item" [ngStyle]="{'background-image': 'url(' + baseUri + item.product_imageuri +')'}">
+                    </div>
+                    <button class="remove_btn">remove</button>
+                </div>
+                <div class="details">
+                    <div>
+                        <p class="item_name">{{item.product_name}}</p>
+                    </div>
+                    <div>
+                        <p class="item_size">Size</p>
+                        <p>{{item.data.item_name}}</p>
+                    </div>
+                    <div>
+                        <p class="item_qty">Quantity</p>
+                        <p>{{item.qty}}</p>
+                    </div>
+                    <div>
+                        <p class="item_qty">Sub Total</p>
+                        <p>Rs {{item.total_price}}.00</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

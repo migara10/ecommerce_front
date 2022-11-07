@@ -15,7 +15,8 @@
     width: 100%;
     justify-content: space-between;
     ._row1 {
-        width: 50%;
+        width: 45%;
+        margin-right: 5%;
         display: flex;
         justify-content: end;
         .block1 {
@@ -56,5 +57,54 @@
         }
     }
     ._row2 {
+        width: 45%;
+        margin-left: 5%;
+        display: flex;
+        justify-content: start;
+        .block1 {
+            width: 60%;
+            margin-right: 24px;
+            .pending_order {
+                display: flex;
+                margin-bottom: 24px;
+                border-bottom: 1px solid gray;
+                ._row3 {
+                    .item {
+                        height: 100px;
+                        width: 80px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                    .remove_btn {
+                        margin: 6px 0;
+                        border-radius: 4px;
+                        background: red;
+                        border: none;
+                        outline: none;
+                        padding: 3px 6px;
+                        width: 100%;
+                    }
+                }
+                .details {
+                    padding: 6px 12px;
+                    width: 100%;
+                    div {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        p {
+                            margin-bottom: 3px;
+                            text-transform: capitalize;
+                            font-weight: 500;
+                        }
+                    }
+                    /* .item_name, .item_size{
+                        text-transform: capitalize;
+                        font-weight: 500;
+                    } */
+                }
+            }
+        }
     }
 }

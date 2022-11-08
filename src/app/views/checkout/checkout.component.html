@@ -11,51 +11,68 @@
 
 <div class="checkout_body">
     <div class="_row1">
-        <div class="block1">
+        <form [formGroup]="userDataForm" class="block1" (ngSubmit)="submit()">
             <div class="forms">
                 <div>
-                    <h3>Contact information</h3>
-                    <input type="email" placeholder="Email" autocomplete="off" required>
+                    <label>Contact information</label>
+                    <input formControlName="email" type="text" placeholder="Email" autocomplete="off">
+                    <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                        <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="forms">
                 <div style="margin-right:6px ;">
-                    <h3>First Name</h3>
-                    <input type="text" placeholder="first name" autocomplete="off" required>
+                    <label>First Name</label>
+                    <input formControlName="firstName" type="text" placeholder="first name" autocomplete="off">
+                    <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']">First Name is required.
+                        </div>
+                        <div *ngIf="f['firstName'].errors && f['firstName'].errors['minlength']">First Name should be 3
+                            character.</div>
+                    </div>
                 </div>
                 <div style="margin-left:6px ;">
-                    <h3>Last Name</h3>
-                    <input type="text" placeholder="last name" autocomplete="off" required>
+                    <label>Last Name</label>
+                    <input formControlName="lastName" type="text" placeholder="last name" autocomplete="off">
+                    <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['lastName'].errors && f['lastName'].errors['required']">Last Name is required.
+                        </div>
+                        <div *ngIf="f['lastName'].errors && f['lastName'].errors['minlength']">Last Name should be 3
+                            character.</div>
+                    </div>
                 </div>
             </div>
             <div class="forms">
                 <div>
-                    <h3>Address</h3>
-                    <input type="text" placeholder="address" autocomplete="off" required>
+                    <label>Address</label>
+                    <input formControlName="address" type="text" placeholder="address" autocomplete="off">
                 </div>
             </div>
             <div class="forms">
                 <div style="margin-right:6px ;">
-                    <h3>City</h3>
-                    <input type="text" placeholder="postal code" autocomplete="off" required>
+                    <label>City</label>
+                    <input formControlName="city" type="text" placeholder="postal code" autocomplete="off">
                 </div>
                 <div style="margin-left:6px ;">
-                    <h3>Postal Code</h3>
-                    <input type="text" placeholder="last name" autocomplete="off" required>
+                    <label>Postal Code</label>
+                    <input formControlName="postalCode" type="text" placeholder="last name" autocomplete="off">
                 </div>
             </div>
             <div class="forms">
                 <div>
-                    <h3>Contact Number</h3>
-                    <input type="text" placeholder="mobile no" autocomplete="off" required>
+                    <label>Contact Number</label>
+                    <input formControlName="mobile" type="text" placeholder="mobile no" autocomplete="off">
                 </div>
             </div>
             <div class="forms">
                 <div>
-                    <button>Process Order</button>
+                    <input [class]="userDataForm.invalid?'':'submit_btn'" type="submit" value="Process Order" [disabled]="userDataForm.invalid">
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="_row2">
         <div class="block1">
@@ -87,3 +104,22 @@
         </div>
     </div>
 </div>
+<!-- {{userDataForm.value | json}} -->
+
+<!-- <form [formGroup]="form" (ngSubmit)="submit()">
+        
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+            <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+        </div>
+    </div>
+    
+    <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
+</form> -->

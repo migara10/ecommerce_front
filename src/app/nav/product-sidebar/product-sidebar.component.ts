@@ -23,7 +23,7 @@ export class ProductSidebarComponent implements OnInit {
   getTotal() {
     let tot = 0
     this.items.forEach((element: any) => {
-      console.log(element.total_price)
+      // console.log(element.total_price)
       tot = element.total_price + tot
     });
     return tot;
@@ -44,12 +44,15 @@ export class ProductSidebarComponent implements OnInit {
     /* this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
     this.saveAllCartItems(this.items); */
     this.dialogRef.close();
-    this.router.navigate(['checkout']);
+    this.saveAllCartItems(this.items); 
+    
 
   }
 
   saveAllCartItems(items: any) {
-    this.api.getresponse("put", "item", items)
+    this.router.navigate(['checkout']);
+    // this.router.navigate(['checkout', items]);
+    /* this.api.getresponse("put", "item", items)
       .subscribe(res => {
         localStorage.removeItem("PendingOrder");
         this.dialogRef.close();
@@ -57,7 +60,7 @@ export class ProductSidebarComponent implements OnInit {
       },
         err => console.log(err)
 
-      )
+      ) */
   }
   close() {
     this.dialogRef.close();

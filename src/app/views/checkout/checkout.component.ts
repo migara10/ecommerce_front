@@ -50,18 +50,17 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
     this.isEmpty = this.items.length ? false : true;
-    this.showSuccess();
 
 
-  }
-  showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
   }
   removeItem(item: any) {
+    /* console.log(item.product_name)
+    console.log(item.data.item_name) */
     const index = this.items.findIndex((x: any) => x.data.item_id === item.data.item_id);
     this.items.splice(index, 1);
     localStorage.removeItem("PendingOrder");
     localStorage.setItem('PendingOrder', JSON.stringify(this.items));
+    this.toastr.warning(`size ${item.data.item_name}`, `remove ${item.product_name}`);
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
     this.isEmpty = this.items.length ? false : true;
     if (this.isEmpty) {
@@ -73,8 +72,9 @@ export class CheckoutComponent implements OnInit {
     console.log(this.userDataForm.value);
     this.api.getresponse("put", "item", this.items)
       .subscribe(res => {
+        this.toastr.success(res.msg);
         localStorage.removeItem("PendingOrder");
-        window.location.reload();
+        this.router.navigate(['']);
       },
         err => console.log(err)
 

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiServiseService } from 'src/app/service/api-servise.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-checkout',
@@ -11,12 +12,16 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  items: any = [];
+  baseUri = this.api.API_URL;
+  isEmpty = true;
+
   form = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
-  
 
-  
+
+
   userDataForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -27,12 +32,7 @@ export class CheckoutComponent implements OnInit {
     mobile: new FormControl('', [Validators.required]),
   })
 
-  get f() {
-    return this.userDataForm.controls;
-  }
-  submit() {
-    console.log(this.userDataForm.value);
-  }
+
 
 
   /* userDataForm = this.formBuilder.group({
@@ -44,23 +44,47 @@ export class CheckoutComponent implements OnInit {
     postalCode: ['', Validators.required],
     mobile: ['', Validators.required],
   }) */
-  items: any = [];
-  baseUri = this.api.API_URL;
-  isEmpty = true;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService, private api: ApiServiseService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private toastr: ToastrService, private api: ApiServiseService) { }
 
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
     this.isEmpty = this.items.length ? false : true;
     this.showSuccess();
+
+
   }
   showSuccess() {
     this.toastr.success('Hello world!', 'Toastr fun!');
   }
+  removeItem(item: any) {
+    const index = this.items.findIndex((x: any) => x.data.item_id === item.data.item_id);
+    this.items.splice(index, 1);
+    localStorage.removeItem("PendingOrder");
+    localStorage.setItem('PendingOrder', JSON.stringify(this.items));
+    this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
+    this.isEmpty = this.items.length ? false : true;
+    if (this.isEmpty) {
+      this.router.navigate(['']);
+    }
+  }
 
   checkoutOrder() {
-    console.log(this.userDataForm.value)
+    console.log(this.userDataForm.value);
+    this.api.getresponse("put", "item", this.items)
+      .subscribe(res => {
+        localStorage.removeItem("PendingOrder");
+        window.location.reload();
+      },
+        err => console.log(err)
+
+      )
+  }
+  get f() {
+    return this.userDataForm.controls;
+  }
+  submit() {
+
   }
 
 

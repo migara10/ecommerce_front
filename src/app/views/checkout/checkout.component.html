@@ -11,7 +11,7 @@
 
 <div class="checkout_body">
     <div class="_row1">
-        <form [formGroup]="userDataForm" class="block1" (ngSubmit)="submit()">
+        <form [formGroup]="userDataForm" class="block1" (ngSubmit)="checkoutOrder()">
             <div class="forms">
                 <div>
                     <label>Contact information</label>
@@ -69,7 +69,7 @@
             </div>
             <div class="forms">
                 <div>
-                    <input [class]="userDataForm.invalid?'':'submit_btn'" type="submit" value="Process Order" [disabled]="userDataForm.invalid">
+                    <input [class]="userDataForm.invalid?'submit_btn1':'submit_btn'" type="submit" value="Process Order" [disabled]="userDataForm.invalid">
                 </div>
             </div>
         </form>
@@ -80,7 +80,7 @@
                 <div class="_row3">
                     <div class="item" [ngStyle]="{'background-image': 'url(' + baseUri + item.product_imageuri +')'}">
                     </div>
-                    <button class="remove_btn">remove</button>
+                    <button class="remove_btn" (click)="removeItem(item)">remove</button>
                 </div>
                 <div class="details">
                     <div>

@@ -53,6 +53,14 @@ export class CheckoutComponent implements OnInit {
 
 
   }
+  getTotal() {
+    let tot = 0
+    this.items.forEach((element: any) => {
+      // console.log(element.total_price)
+      tot = element.total_price + tot
+    });
+    return tot;
+  }
   removeItem(item: any) {
     /* console.log(item.product_name)
     console.log(item.data.item_name) */
@@ -70,11 +78,15 @@ export class CheckoutComponent implements OnInit {
 
   checkoutOrder() {
     console.log(this.userDataForm.value);
-    this.api.getresponse("put", "item", this.items)
+    const queryParams = {
+      item: this.items,
+      user: this.userDataForm.value
+    }
+    this.api.getresponse("post", "order", queryParams)
       .subscribe(res => {
         this.toastr.success(res.msg);
-        localStorage.removeItem("PendingOrder");
-        this.router.navigate(['']);
+        /* localStorage.removeItem("PendingOrder");
+        this.router.navigate(['']); */
       },
         err => console.log(err)
 

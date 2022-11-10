@@ -96,7 +96,7 @@
                     }
                 }
                 .details {
-                    padding: 6px 12px;
+                    padding: 6px 0px 6px 12px;
                     width: 100%;
                     div {
                         width: 100%;
@@ -112,6 +112,28 @@
                         text-transform: capitalize;
                         font-weight: 500;
                     } */
+                }
+            }
+            .bottom_bar {
+                .last_total {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    p {
+                        margin-bottom: 3px;
+                        text-transform: capitalize;
+                        font-weight: 500;
+                    }
+                }
+                .ckeckout {
+                    button {
+                        margin-top: 6px;
+                        padding: 6px 12px;
+                        outline: none;
+                        width: 100%;
+                        color: white;
+                        background: black;
+                    }
                 }
             }
         }

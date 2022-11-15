@@ -7,22 +7,25 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent
+    component: HomeComponent,
+    data: { isShow: true },
   },
   {
     path: 'checkout',
     pathMatch: 'full',
-    component: CheckoutComponent
+    component: CheckoutComponent,
+    data: { isShow: false },
   },
   {
     path: 'view_order',
     pathMatch: 'full',
+    data: { isShow: true },
     component: OrderListComponent,
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

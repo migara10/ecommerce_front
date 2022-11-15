@@ -13,8 +13,6 @@ import { ItemComponent } from './views/item/item.component';
 import { CheckoutComponent } from './views/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MaterialModule } from './material.module';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -35,8 +33,6 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSliderModule,
-    MatDialogModule,
     MaterialModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],

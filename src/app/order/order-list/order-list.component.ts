@@ -16,8 +16,6 @@ export class OrderListComponent implements OnInit {
         console.log(res)
       },
         err => console.log(err)
-
       )
   }
-
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import {ProductSidebarComponent} from "../product-sidebar/product-sidebar.component"
+import { ProductSidebarComponent } from "../product-sidebar/product-sidebar.component"
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import {filter} from 'rxjs/operators';
+import {map, mergeMap} from 'rxjs/operators';
 declare var $: any
 @Component({
    selector: 'app-navbar',
@@ -9,10 +12,64 @@ declare var $: any
 })
 export class NavbarComponent implements OnInit {
    isFalse = false
-   constructor( private dialog: MatDialog) { }
+   isShow = true;
+   constructor(private dialog: MatDialog, private route: ActivatedRoute, private router: Router) {
+      /* const value = this.route.snapshot.data['title'];
+    console.log(value, 'aaaaaaaa') */
+   }
 
    ngOnInit(): void {
+
+      this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd),
+        map(() => {
+          let route = this.route.firstChild;
+          let child = route;
+          while (child) {
+            if (child.firstChild) {
+              child = child.firstChild;
+              route = child;
+            } else {
+              child = null;
+            }
+          }
+          return route;
+        }),
+        mergeMap((route: any) => route.data)
+      )
+      .subscribe((data: any) => {
+        /* console.log(data.isShow); */
+        this.isShow = data.isShow;
+      });
+
+
       
+      /* this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => {
+          let routeTitle = '';
+          while (this.route!.firstChild) {
+            this.route = this.route.firstChild;
+          }
+          if (this.route.snapshot.data['key']) {
+            routeTitle = this.route!.snapshot.data['key'];
+            console.log(routeTitle)
+          }
+          return routeTitle;
+        })
+      )
+      .subscribe(); */
+
+
+      /* this.route.data.subscribe((data) => {
+         const value = data['key']
+         console.log(value)
+    }); */
+
+
+
+
       /* $(function () {
          $(window).scroll(function () {
            var scroll1 = $(window).scrollTop();
@@ -84,15 +141,15 @@ export class NavbarComponent implements OnInit {
    openSideBar() {
       const dialogConfig = new MatDialogConfig();
       dialogConfig.position = {
-        'top': '0',
-        right: '0'
+         'top': '0',
+         right: '0'
       }
       dialogConfig.width = '300px';
       dialogConfig.height = '100%';
-      dialogConfig.enterAnimationDuration="0.5s"
-      dialogConfig.exitAnimationDuration="0.5s"
+      dialogConfig.enterAnimationDuration = "0.5s"
+      dialogConfig.exitAnimationDuration = "0.5s"
       this.dialog.open(ProductSidebarComponent, dialogConfig);
-  
-    }
+
+   }
 
 }

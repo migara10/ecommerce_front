@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
+import { parseHTML } from 'jquery';
 
 @Component({
   selector: 'app-checkout',
@@ -50,8 +51,6 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
     this.isEmpty = this.items.length ? false : true;
-
-
   }
   getTotal() {
     let tot = 0

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ApiServiseService } from 'src/app/service/api-servise.service';
 import { Router } from '@angular/router';
+import { query } from '@angular/animations';
 
 @Component({
   selector: 'app-product-sidebar',
@@ -50,7 +51,7 @@ export class ProductSidebarComponent implements OnInit {
   }
 
   saveAllCartItems(items: any) {
-    this.router.navigate(['checkout']);
+    this.router.navigate(['checkout'], {queryParams: {item: this.items}});
     // this.router.navigate(['checkout', items]);
     /* this.api.getresponse("put", "item", items)
       .subscribe(res => {

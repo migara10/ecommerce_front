@@ -4,7 +4,7 @@ import { ApiServiseService } from 'src/app/service/api-servise.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-checkout',
@@ -45,7 +45,7 @@ export class CheckoutComponent implements OnInit {
     mobile: ['', Validators.required],
   }) */
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private toastr: ToastrService, private api: ApiServiseService) { }
+  constructor(private location: Location, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private toastr: ToastrService, private api: ApiServiseService) { }
 
   ngOnInit(): void {
     this.items = JSON.parse(localStorage.getItem("PendingOrder") || "[]");
@@ -95,8 +95,8 @@ export class CheckoutComponent implements OnInit {
   get f() {
     return this.userDataForm.controls;
   }
-  submit() {
-
+  goBack() {
+    this.location.back();
   }
 
 

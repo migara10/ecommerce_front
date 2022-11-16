@@ -1,6 +1,13 @@
 .nav {
-    height: 10vh;
-    background: rgb(119, 119, 119);
+    position: relative;
+    h3 {
+        padding: 3px 6px;
+        background-color: black;
+        color: white;
+        position: absolute;
+        left: 16%;
+        top: 50px;
+    }
 }
 
 .checkout_main {
@@ -43,18 +50,18 @@
                         outline: none;
                         border: 1.5px solid rgb(24, 124, 191);
                     }
-                    .submit_btn{
+                    .submit_btn {
                         border: 0;
-                        outline: none;  
+                        outline: none;
                         width: 100%;
                         padding: 12px 24px;
                         color: white;
                         font-size: 1.2em;
                         background: black;
                     }
-                    .submit_btn1{
+                    .submit_btn1 {
                         border: 0;
-                        outline: none;  
+                        outline: none;
                         width: 100%;
                         padding: 12px 24px;
                         color: white;
@@ -141,6 +148,6 @@
     }
 }
 
-.d_none{
+.d_none {
     display: none;
 }

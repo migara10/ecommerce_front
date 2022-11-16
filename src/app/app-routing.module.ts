@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'view_order',
     pathMatch: 'full',
-    data: { isShow: true },
+    data: { isShow: false },
     component: OrderListComponent,
   }
 ];

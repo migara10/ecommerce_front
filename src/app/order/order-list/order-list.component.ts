@@ -7,7 +7,7 @@ import { ApiServiseService } from 'src/app/service/api-servise.service';
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements OnInit {
-
+  panelOpenState = false;
   constructor(private api: ApiServiseService) { }
 
   ngOnInit(): void {

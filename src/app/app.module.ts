@@ -15,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ToastrModule } from 'ngx-toastr';
-
+import { MatCardModule } from '@angular/material/card';
+import { OrderListComponent } from './order/order-list/order-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     ItemComponent,
     ProductSidebarComponent,
     CheckoutComponent,
+    OrderListComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MatCardModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [ApiServiseService],

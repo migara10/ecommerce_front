@@ -84,8 +84,8 @@ export class CheckoutComponent implements OnInit {
     this.api.getresponse("post", "order", queryParams)
       .subscribe(res => {
         this.toastr.success(res.msg);
-        /* localStorage.removeItem("PendingOrder");
-        this.router.navigate(['']); */
+        localStorage.removeItem("PendingOrder");
+        this.router.navigate(['/']);
       },
         err => console.log(err)
 

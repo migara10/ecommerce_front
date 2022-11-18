@@ -1,25 +1,32 @@
-<!-- <mat-expansion-panel hideToggle *ngFor="let record of orderRecords; index as i;">
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            {{record.order_date}}
-        </mat-panel-title>
-        <mat-panel-description>
-            This is a summary of the content
-        </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
-</mat-expansion-panel> -->
-
 <div class="matframe">
     <mat-accordion class="mclass" *ngFor="let record of orderRecords; index as i;">
 
-        <mat-expansion-panel class="mpanel" (opened)="panelOpenState = true" (closed)="panelOpenState = false" [expanded]="i === 0">
+        <mat-expansion-panel
+            class="mpanel"
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+            [expanded]="i === 0"
+        >
             <mat-expansion-panel-header class="mheader">
                 <mat-panel-title class="mtitle">
-                    {{record.order_date}}
+                    {{convertTime(record.order_date)}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <div class="_body">
+                {{record.firstName}}
+                <div class="_row">
+                    <div class="booktitle" *ngFor="let item of record.orderItems">
+                        <h4>{{item.product_name}} ( {{item.item_name}} ) </h4>
+                        <h4>{{item.item_id}}</h4>
+                        <h4>{{item.qty}}</h4>
+                        <!-- <ul class="custom-list">
+                            <li>{{b.bname}}</li>
+                            <li>{{b.bname1}}</li>
+                            <li>{{b.bname2}}</li>
+
+                        </ul> -->
+                    </div>
+                </div>
             </div>
         </mat-expansion-panel>
     </mat-accordion>

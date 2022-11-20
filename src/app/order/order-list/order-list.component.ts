@@ -11,6 +11,7 @@ export class OrderListComponent implements OnInit {
   panelOpenState = false;
   orderRecords : any;
   step = 0;
+  baseUri = this.api.API_URL;
   constructor(private api: ApiServiseService) { }
 
   ngOnInit(): void {

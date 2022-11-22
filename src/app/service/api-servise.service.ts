@@ -7,6 +7,8 @@ import { Observable, throwError } from 'rxjs';
 })
 export class ApiServiseService {
   public API_URL = isDevMode() ? "http://localhost:3000/" : ""
+  private url = 'https://reqres.in/api/users';
+  // private url = 'https://jsonplaceholder.typicode.com/todos';
 
 
 
@@ -22,6 +24,9 @@ export class ApiServiseService {
   ): Observable<any> {
     const url = `${this.API_URL}` + endpoint;
     return this.http.request(method, url, { body: postParams });
+  }
+  getUsers(page: number){
+    return this.http.get(this.url + '?page=' + page);
   }
 
 

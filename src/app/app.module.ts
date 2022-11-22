@@ -17,6 +17,7 @@ import { MaterialModule } from './material.module';
 import { ToastrModule } from 'ngx-toastr';
 import { MatCardModule } from '@angular/material/card';
 import { OrderListComponent } from './order/order-list/order-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
     MaterialModule,
     MatCardModule,
     ToastrModule.forRoot(), // ToastrModule added
+    NgxPaginationModule,
   ],
   providers: [ApiServiseService],
   bootstrap: [AppComponent]

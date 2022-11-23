@@ -17,6 +17,7 @@ import { MaterialModule } from './material.module';
 import { ToastrModule } from 'ngx-toastr';
 import { MatCardModule } from '@angular/material/card';
 import { OrderListComponent } from './order/order-list/order-list.component';
+import { AddProductComponent } from './order/add-product/add-product.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProductSidebarComponent,
     CheckoutComponent,
     OrderListComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

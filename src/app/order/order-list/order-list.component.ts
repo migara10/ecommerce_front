@@ -16,7 +16,7 @@ export class OrderListComponent implements OnInit {
   users:any;
   p: number = 1;
   total: number = 0;
-  limit: number = 3;
+  limit: number = 2;
   constructor(private api: ApiServiseService) {
     this.getUsers();
    }

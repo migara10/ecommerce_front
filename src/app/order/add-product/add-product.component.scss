@@ -1,0 +1,153 @@
+.nav {
+    position: relative;
+    h3 {
+        padding: 3px 6px;
+        background-color: black;
+        color: white;
+        position: absolute;
+        left: 16%;
+        top: 50px;
+    }
+}
+
+.checkout_main {
+    margin-top: 48px;
+    .heading {
+        text-align: center;
+        color: gray;
+    }
+}
+.checkout_body {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    ._row1 {
+        width: 45%;
+        margin-right: 5%;
+        display: flex;
+        justify-content: end;
+        .block1 {
+            width: 60%;
+            margin-right: 24px;
+            .forms {
+                margin: 24px 0;
+                width: 100%;
+                display: flex;
+                div {
+                    width: 100%;
+                    label {
+                        font-weight: 500;
+                        margin: 0;
+                    }
+                    input {
+                        width: 100%;
+                        padding: 12px 24px;
+                        outline: none;
+                        border-radius: 2px;
+                        border: 1px solid rgb(105, 105, 105);
+                    }
+                    input:focus {
+                        outline: none;
+                        border: 1.5px solid rgb(24, 124, 191);
+                    }
+                    .submit_btn {
+                        border: 0;
+                        outline: none;
+                        width: 100%;
+                        padding: 12px 24px;
+                        color: white;
+                        font-size: 1.2em;
+                        background: black;
+                    }
+                    .submit_btn1 {
+                        border: 0;
+                        outline: none;
+                        width: 100%;
+                        padding: 12px 24px;
+                        color: white;
+                        font-size: 1.2em;
+                        background: rgb(148, 148, 148);
+                    }
+                }
+            }
+        }
+    }
+    ._row2 {
+        width: 45%;
+        margin-left: 5%;
+        margin-top: 24px;
+        display: flex;
+        justify-content: start;
+        .block1 {
+            width: 60%;
+            margin-right: 24px;
+            .pending_order {
+                display: flex;
+                margin-bottom: 24px;
+                border-bottom: 1px solid gray;
+                ._row3 {
+                    .item {
+                        height: 100px;
+                        width: 80px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                    .remove_btn {
+                        margin: 6px 0;
+                        border-radius: 4px;
+                        background: red;
+                        border: none;
+                        outline: none;
+                        padding: 3px 6px;
+                        width: 100%;
+                    }
+                }
+                .details {
+                    padding: 6px 0px 6px 12px;
+                    width: 100%;
+                    div {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        p {
+                            margin-bottom: 3px;
+                            text-transform: capitalize;
+                            font-weight: 500;
+                        }
+                    }
+                    /* .item_name, .item_size{
+                        text-transform: capitalize;
+                        font-weight: 500;
+                    } */
+                }
+            }
+            .bottom_bar {
+                .last_total {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    p {
+                        margin-bottom: 3px;
+                        text-transform: capitalize;
+                        font-weight: 500;
+                    }
+                }
+                .ckeckout {
+                    button {
+                        margin-top: 6px;
+                        padding: 6px 12px;
+                        outline: none;
+                        width: 100%;
+                        color: white;
+                        background: black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.d_none {
+    display: none;
+}

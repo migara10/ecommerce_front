@@ -2,7 +2,7 @@
     <mat-accordion class="mclass" *ngFor="let record of orderRecords | paginate: { itemsPerPage: limit, currentPage: p, totalItems: total }; index as i;">
 
         <mat-expansion-panel class="mpanel" (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-            [expanded]="i">
+            [expanded]="i==0">
             <mat-expansion-panel-header class="mheader">
                 <mat-panel-title class="mtitle">
                     {{convertTime(record.order_date)}}

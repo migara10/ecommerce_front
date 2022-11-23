@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { CheckoutComponent } from './views/checkout/checkout.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
+import { AddProductComponent } from './order/add-product/add-product.component';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +22,12 @@ const routes: Routes = [
     pathMatch: 'full',
     data: { isShow: false },
     component: OrderListComponent,
+  },
+  {
+    path: 'add_product',
+    pathMatch: 'full',
+    data: { isShow: false },
+    component: AddProductComponent,
   }
 ];
 

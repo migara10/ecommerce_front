@@ -4,6 +4,7 @@ import { HomeComponent } from './views/home/home.component';
 import { CheckoutComponent } from './views/checkout/checkout.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { AddProductComponent } from './order/add-product/add-product.component';
+import { AddItemsComponent } from './order/add-items/add-items.component';
 const routes: Routes = [
   {
     path: '',
@@ -28,7 +29,13 @@ const routes: Routes = [
     pathMatch: 'full',
     data: { isShow: false },
     component: AddProductComponent,
-  }
+  },
+  {
+    path: 'add_items',
+    pathMatch: 'full',
+    data: { isShow: false },
+    component: AddItemsComponent,
+  },
 ];
 
 @NgModule({

@@ -122,6 +122,7 @@ export class AddProductComponent implements OnInit {
         this.toastr.success(res.msg);
         /* localStorage.removeItem("PendingOrder");
         this.router.navigate(['/']); */
+        this.router.navigate(['/add_items']); 
       },
         err => console.log(err)
 

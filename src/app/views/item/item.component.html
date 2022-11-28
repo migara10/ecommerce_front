@@ -22,11 +22,13 @@
                     <h3 class="m-0">Style Size</h3>
                     <div class="container">
                         <div class="itemz" *ngFor="let item of items; index as i;">
-                            <div class="button">
+                            <input type="radio" id="{{item.item_name}}" name="animal" value="" />
+                            <label for="{{item.item_name}}" (click)="selectSize(item)">{{item.item_name}}</label>
+                            <!-- <div class="button">
                                 <input type="radio" id="{{item.item_name}}" name="check-substitution-2" />
                                 <label class="size_btn" for="{{item.item_name}}"
                                     (click)="selectSize(item)">{{item.item_name}}</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="input_qty" *ngIf="isSelect">

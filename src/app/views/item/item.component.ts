@@ -36,6 +36,9 @@ export class ItemComponent implements OnInit {
     this.selectQty = 1;
     this.maxLength = item.item_qty;
     this.isSelect = true;
+    $('#other-field').focus(function() {
+      $('#other').prop("checked", true);
+    });
   }
 
   incrementQty() {

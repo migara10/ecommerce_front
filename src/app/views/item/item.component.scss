@@ -53,7 +53,31 @@
                         padding: 0;
                         /* position: absolute; */
                         .itemz {
-                            .button {
+                            .blank-label {
+                                display: none;
+                            }
+                            input[type="radio"]:checked + label {
+                                background: #20b8be;
+                                color: #fff;
+                            }
+                            input {
+                                position: relative;
+                                opacity: 0.011;
+                                z-index: 100;
+                            }
+                            label {
+                                height: 40px;
+                                width: 40px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                border: 1px solid #20b8be;
+                                cursor: pointer;
+                                position: relative;
+                                z-index: 20 !important;
+                                margin:0px 3px;
+                            }
+                            /* .button {
                                 margin: 0 5px 0 0;
                                 width: 30px;
                                 height: 15px;
@@ -84,7 +108,7 @@
                                 .size_btn {
                                     padding: 12px 24px;
                                 }
-                            }
+                            } */
                         }
                     }
                     .input_qty {

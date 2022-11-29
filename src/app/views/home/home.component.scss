@@ -114,13 +114,14 @@
                 }
 
                 .surprise-bubble {
+                    display: none;
                     position: absolute;
-                    bottom: 12rem;
-                    right: 2rem;
+                    bottom: 3rem;
+                    right: 5%;
                     border-radius: 50%;
                     width: 30px;
                     height: 30px;
-                    background: #fff;
+                    background-color: #db2763;
                     padding: 1rem;
                     color: white;
                     -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -173,12 +174,14 @@
                     text-transform: capitalize;
                 }
                 .p_price {
+                    margin-top: 6px;
                     .promo_price {
                         font-weight: bold;
                         margin-right: 12px;
                     }
                     .none_price {
                         text-decoration: line-through;
+                        color: #db2763;
                     }
                 }
 

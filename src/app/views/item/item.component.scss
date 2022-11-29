@@ -4,7 +4,7 @@
     height: 100%;
     .item {
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: top;
         background-size: cover;
         width: 50%;
         height: 100%;
@@ -21,7 +21,7 @@
                 width: 20px;
                 height: 20px;
                 background-repeat: no-repeat;
-                background-position: center;
+                background-position: ceil($number: 0);
                 background-size: cover;
                 cursor: pointer;
             }

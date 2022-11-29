@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    display: none;
     .shadow {
         height: 100%;
         background-color: rgba(0, 0, 0, 0.332) !important;
@@ -68,6 +69,18 @@
         }
     }
 }
+.banner {
+    height: 60vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: none;
+    .shadow {
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.332) !important;
+    }
+}
 
 .content1 {
     .container {
@@ -77,15 +90,114 @@
             margin: 1%;
             flex: 1 1 23%;
             max-width: 23%;
+            height: 375px;
             box-shadow: 0 3px 6px #888;
-            height: 300px;
+            /* height: 300px; */
             width: 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
+            border-radius: 7px 7px 0 0;
+            position: relative;
+            margin-top: 48px;
+            .card_head {
+                border-radius: 7px 7px 0 0;
+                height: 250px;
+                width: 100%;
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: cover;
+                .dress-card-heart {
+                    font-size: 1em;
+                    color: #db2763;
+                    margin: 4.5px;
+                    position: absolute;
+                    left: 4px;
+                    top: 0px;
+                }
+
+                .surprise-bubble {
+                    position: absolute;
+                    bottom: 12rem;
+                    right: 2rem;
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    background: #fff;
+                    padding: 1rem;
+                    color: white;
+                    -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+                }
+
+                .surprise-bubble a {
+                    font-size: 0.65em;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: white;
+                    font-family: arial;
+                    text-decoration: none;
+                    position: absolute;
+                    top: 9px;
+                    left: 20px;
+                    opacity: 0;
+                    -webkit-transition-delay: 2s;
+                    /* Safari */
+                    transition-delay: 2s;
+                    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+                }
+
+                .surprise-bubble:hover {
+                    border-radius: 999rem;
+                    padding: 1rem;
+                    width: 26%;
+                    height: 30px;
+                    background: #db2763;
+                    color: white;
+                    -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+                }
+
+                .surprise-bubble:hover a {
+                    opacity: 1;
+                    -webkit-transition-delay: 2s;
+                    /* Safari */
+                    transition-delay: 2s;
+                    -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+                }
+            }
+            .card_body {
+                padding: 6px 5%;
+                height: 100px;
+                .p_name,
+                .p_price {
+                    text-transform: capitalize;
+                }
+                .p_price {
+                    .promo_price {
+                        font-weight: bold;
+                        margin-right: 12px;
+                    }
+                    .none_price {
+                        text-decoration: line-through;
+                    }
+                }
+
+                .select_btn {
+                    outline: none;
+                    border-radius: 3px;
+                    border: 0;
+                    background-color: #20b8be;
+                    color: white;
+                    padding: 6px 12px;
+                    width: 90%;
+                    position: absolute;
+                    bottom: 3%;
+                    left: 5%;
+                }
+            }
         }
     }
-    @media (max-width: 800px) {
+    @media (max-width: 830px) {
         .container {
             .item {
                 flex: 1 1 31%;
@@ -93,15 +205,156 @@
             }
         }
     }
-    @media (max-width: 400px) {
+    @media (max-width: 600px) {
         .container {
             .item {
                 flex: 1 1 48%;
                 max-width: 48%;
+                height: 400px;
+                .card_head {
+                    height: 300px;
+                }
+            }
+        }
+    }
+    @media (max-width: 430px) {
+        .container {
+            .item {
+                flex: 1 1 100%;
+                max-width: 100%;
+                height: 500px;
+                .card_head {
+                    height: 350px;
+                }
             }
         }
     }
 }
 
+.dress-card-img-top {
+    width: 100%;
+    border-radius: 7px 7px 0 0;
+}
 
+.dress-card-body {
+    padding: 1rem;
+    background: #fff;
+    border-radius: 0 0 7px 7px;
+}
 
+.dress-card-title {
+    line-height: 0.5rem;
+}
+
+.dress-card-crossed {
+    text-decoration: line-through;
+}
+
+.dress-card-price {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.dress-card-off {
+    color: #e06c9f;
+}
+
+.dress-card-para {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    margin-bottom: 0rem;
+}
+
+.dress-card {
+    border-radius: 14px;
+}
+
+.dress-card-heart {
+    font-size: 1em;
+    color: #db2763;
+    margin: 4.5px;
+    position: absolute;
+    left: 4px;
+    top: 0px;
+}
+
+.surprise-bubble {
+    position: absolute;
+    bottom: 12rem;
+    right: 2rem;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    padding: 1rem;
+    color: white;
+    -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.surprise-bubble a {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    font-family: arial;
+    text-decoration: none;
+    position: absolute;
+    top: 9px;
+    left: 20px;
+    opacity: 0;
+    -webkit-transition-delay: 2s;
+    /* Safari */
+    transition-delay: 2s;
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.surprise-bubble:hover {
+    border-radius: 999rem;
+    padding: 1rem;
+    width: 26%;
+    height: 30px;
+    background: #db2763;
+    color: white;
+    -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.surprise-bubble:hover a {
+    opacity: 1;
+    -webkit-transition-delay: 2s;
+    /* Safari */
+    transition-delay: 2s;
+    -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.card-button {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 9px;
+}
+.card-button a {
+    text-decoration: none;
+}
+
+.card-button-inner {
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.bag-button {
+    background: #e06c9f;
+    color: white;
+}
+
+.bag-button :hover {
+    background: #e299b9;
+}
+
+.wish-button {
+    border: 1px solid #e06c9f;
+    color: #e06c9f;
+}

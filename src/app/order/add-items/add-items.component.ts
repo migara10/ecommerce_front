@@ -31,11 +31,15 @@ export class AddItemsComponent implements OnInit {
     l: '',
     xl: '',
   }
-  constructor(private api: ApiServiseService, private router: Router) { }
+  constructor(private api: ApiServiseService, private router: Router, private route: ActivatedRoute) {
+    this.id = this.route.snapshot.queryParams['id']
+    // console.log(this.route.getCurrentNavigation().extras.state.example);
+  }
 
   ngOnInit(): void {
     this.getProductDetails();
     // this.productItem.value['product_name'] =  "migara";
+
 
   }
   getProductDetails() {
@@ -61,7 +65,7 @@ export class AddItemsComponent implements OnInit {
     }
     this.api.getresponse("post", "item", data)
       .subscribe(res => {
-        this.router.navigate(['/']); 
+        this.router.navigate(['/']);
       },
         err => console.log(err)
 

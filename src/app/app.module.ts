@@ -20,6 +20,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
 import { AddProductComponent } from './order/add-product/add-product.component';
 import { AddItemsComponent } from './order/add-items/add-items.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OwlModule } from 'ngx-owl-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    OwlModule,
     MaterialModule,
     MatCardModule,
     ToastrModule.forRoot(), // ToastrModule added

@@ -22,17 +22,6 @@ export class AddProductComponent implements OnInit {
   });
 
 
-
-  userDataForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    lastName: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required]),
-    city: new FormControl('', [Validators.required]),
-    postalCode: new FormControl('', [Validators.required]),
-    mobile: new FormControl('', [Validators.required]),
-  })
-
   productItem = new FormGroup({
     product_name: new FormControl('', [Validators.required]),
     product_category: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -40,18 +29,6 @@ export class AddProductComponent implements OnInit {
     product_price: new FormControl('', [Validators.required]),
   })
 
-
-
-
-  /* userDataForm = this.formBuilder.group({
-    email: ['', Validators.required],
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    address: ['', Validators.required],
-    city: ['', Validators.required],
-    postalCode: ['', Validators.required],
-    mobile: ['', Validators.required],
-  }) */
 
   constructor(private location: Location, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private toastr: ToastrService, private api: ApiServiseService) { }
 
@@ -68,8 +45,6 @@ export class AddProductComponent implements OnInit {
     return tot;
   }
   removeItem(item: any) {
-    /* console.log(item.product_name)
-    console.log(item.data.item_name) */
     const index = this.items.findIndex((x: any) => x.data.item_id === item.data.item_id);
     this.items.splice(index, 1);
     localStorage.removeItem("PendingOrder");
@@ -82,22 +57,6 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-  checkoutOrder() {
-    console.log(this.userDataForm.value);
-    const queryParams = {
-      item: this.items,
-      user: this.userDataForm.value
-    }
-    this.api.getresponse("post", "order", queryParams)
-      .subscribe(res => {
-        this.toastr.success(res.msg);
-        /* localStorage.removeItem("PendingOrder");
-        this.router.navigate(['/']); */
-      },
-        err => console.log(err)
-
-      )
-  }
   get f() {
     return this.productItem.controls;
   }
@@ -109,7 +68,7 @@ export class AddProductComponent implements OnInit {
     console.log(this.selectedFile);
   };
 
-  saveNews()  {
+  saveNews() {
     const fd = new FormData();
     fd.append("file", this.selectedFile);
     fd.append("product_name", this.productItem.value['product_name'] || '');
@@ -120,15 +79,12 @@ export class AddProductComponent implements OnInit {
     this.api.getresponse("post", "product", fd)
       .subscribe(res => {
         this.toastr.success(res.msg);
-        /* localStorage.removeItem("PendingOrder");
-        this.router.navigate(['/']); */
-        this.router.navigate(['/add_items']); 
+        this.router.navigate(['/add_items'] , { queryParams: { id: res.data.product_id}});
       },
         err => console.log(err)
 
       )
-
-    };
+  };
 
 
 

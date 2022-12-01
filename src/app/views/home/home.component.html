@@ -1,27 +1,74 @@
-<owl-carousel [options]="{items: 4, dots: false, navigation: false,
-    loop: true,
-    slideSpeed : 100,
-  animateOut:'fadeOut',
-  paginationSpeed : 100,
-  autoplay:true,
-  autoplayTimeout:2000,
-  rewindSpeed:100,
-  rewind:true,
-  margin: 12,
-  responsive: {       '0': {  items: 1 },
-  '768': { items: 4 }
-   }}
-    " [carouselClasses]="['owl-theme', 'row', 'sliding']" #owlElement1>
-  <a class="item" >
-    ffdddddddddddd
-  </a>
-  <a class="item" >
-    ddaaaaaaaaaaa
-  </a>
+<owl-carousel [options]="customOptions" [carouselClasses]="['owl-theme', 'row', 'sliding']" #owlElement1>
+    <!-- <a class="item">
+        <div class="banner" style="background-image: url(assets/img/banner/main.jpg);">
+        </div>
+    </a> -->
+    <div class="banner ban3" style="background-image: url(assets/img/banner/main.jpg);">
+        <div class="shadow">
+            <div class="ani">
+                <div class="body_animate">
+                    <h2>Free Shiping</h2>
+                    <h4>On purchases over $199</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner ban4" style="background-image: url(assets/img/banner/main1.jpg);">
+        <div class="shadow">
+            <div class="ani">
+                <div class="body_animate">
+                    <h2>99% Satisfied Customers</h2>
+                    <h4>speak for themselves</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner ban1" style="background-image: url(assets/img/banner/main2.jpg);">
+        <div class="shadow">
+            <div class="ani">
+                <div class="body_animate">
+                    <h2>Originality Guaranteed</h2>
+                    <h4>30 days warranty for each product from our store</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner ban2" style="background-image: url(assets/img/banner/main3.jpg);">
+        <div class="shadow">
+            <div class="ani">
+                <div class="body_animate">
+                    <h2>Heading 1</h2>
+                    <h4>Content</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 </owl-carousel>
 
 
-<div class="banner" style="background-image: url(assets/img/banner/main.jpg);">
+
+<div class="content1">
+    <div class="container">
+        <div class="item" *ngFor="let product of products; index as i;">
+            <div class="card_head" [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}">
+                <div class="surprise-bubble"><span class="dress-card-heart">
+                        <i class="fas fa-heart"></i>
+                    </span><a href="#"> <span>More</span></a></div>
+            </div>
+            <div class="card_body">
+                <div class="p_name">
+                    {{product.product_name}}
+                </div>
+                <div class="p_price">
+                    <span class="promo_price">RS: {{product.product_price}}.00</span>
+                    <span class="none_price">RS: {{product.product_price*10}}.00</span>
+                </div>
+                <button class="select_btn" (click)="openChild(product)">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="banner" style="background-image: url(assets/img/banner/main.jpg);">
     <div class="shadow">
         <div class="block1">
             <div class="heading">Sale of the <br> summer <br> collection</div>
@@ -60,70 +107,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="content1">
-    <div class="container">
-        <div class="item" *ngFor="let product of products; index as i;">
-            <div class="card_head" [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}">
-                <div class="surprise-bubble"><span class="dress-card-heart">
-                        <i class="fas fa-heart"></i>
-                    </span><a href="#"> <span>More</span></a></div>
-            </div>
-            <div class="card_body">
-                <div class="p_name">
-                    {{product.product_name}}
-                </div>
-                <div class="p_price">
-                    <span class="promo_price">RS: {{product.product_price}}.00</span>
-                    <span class="none_price">RS: {{product.product_price*10}}.00</span>
-                </div>
-                <button class="select_btn" (click)="openChild(product)">Select</button>
-            </div>
-        </div>
-    </div>
-    <!-- <div class="container">
-        <div class="item" style="background-image: url(assets/img/items/img1.png);"></div>
-    </div> -->
-</div>
-
-<!-- <app-item *ngIf="isChild" [item]="currentItem"></app-item> -->ෆ
-
-<!-- <button mat-raised-button (click)="openDialog()">Open dialog without animation</button> -->
-
-<div class="container">
-    <h1>Clothing Cards made with pure bootstrap and jquery</h1>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="dress-card">
-                <div class="dress-card-head">
-                    <img class="dress-card-img-top"
-                        src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7578935/2018/10/23/d7b740bc-e00e-4bec-97aa-65016f8ff2e71540289479612-Harpa-Women-Dresses-2331540289479465-1.jpg"
-                        alt="">
-                    <div class="surprise-bubble"><span class="dress-card-heart">
-                            <i class="fas fa-heart"></i>
-                        </span><a href="#"> <span>More</span></a></div>
-                </div>
-                <div class="dress-card-body">
-                    <h4 class="dress-card-title">Harpa</h4>
-                    <p class="dress-card-para">Womans printed clothing</p>
-                    <p class="dress-card-para"><span class="dress-card-price">Rs.839 &ensp;</span><span
-                            class="dress-card-crossed">Rs.2099</span><span class="dress-card-off">&ensp;(60% OFF)</span>
-                    </p>
-                    <div class="row">
-                        <div class="col-md-6 card-button"><a href="">
-                                <div class="card-button-inner bag-button">Add to Bag</div>
-                            </a></div>
-                        <div class="col-md-6 card-button"><a href="">
-                                <div class="card-button-inner wish-button">Whishlist</div>
-                            </a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
+</div> -->

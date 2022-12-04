@@ -1,0 +1,43 @@
+._popup {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    .item {
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+        width: 50%;
+        height: 100%;
+    }
+    .row_2 {
+        width: 50%;
+        .close_bar {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            .close_btn {
+                background-image: url(../../../assets/img/icons/close.png);
+                width: 20px;
+                height: 20px;
+                background-repeat: no-repeat;
+                background-position: ceil($number: 0);
+                background-size: cover;
+                cursor: pointer;
+            }
+        }
+        .block1{
+            .forms{
+                div{
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 12px 6px;
+                    input{
+                        border: 1px solid black;
+                        outline: none;
+                    }
+                }
+            }
+        }
+        
+    }
+}

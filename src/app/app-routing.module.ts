@@ -5,6 +5,7 @@ import { CheckoutComponent } from './views/checkout/checkout.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { AddProductComponent } from './order/add-product/add-product.component';
 import { AddItemsComponent } from './order/add-items/add-items.component';
+import {EditProductComponent} from './order/edit-product/edit-product.component';
 const routes: Routes = [
   {
     path: '',
@@ -29,6 +30,12 @@ const routes: Routes = [
     pathMatch: 'full',
     data: { isShow: false },
     component: AddProductComponent,
+  },
+  {
+    path: 'edit_product',
+    pathMatch: 'full',
+    data: { isShow: false },
+    component: EditProductComponent,
   },
   {
     path: 'add_items',

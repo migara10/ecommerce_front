@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
     dots: false,
     navSpeed: 700,
     navText: ['', ''],
+    margin: 0,
     responsive: {
       0: {
         items: 1

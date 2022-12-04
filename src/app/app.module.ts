@@ -18,6 +18,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatCardModule } from '@angular/material/card';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { AddProductComponent } from './order/add-product/add-product.component';
+import { EditProductComponent } from './order/edit-product/edit-product.component';
 import { AddItemsComponent } from './order/add-items/add-items.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OwlModule } from 'ngx-owl-carousel';
@@ -32,10 +33,11 @@ import { OwlModule } from 'ngx-owl-carousel';
     CheckoutComponent,
     OrderListComponent,
     AddProductComponent,
-    AddItemsComponent
+    EditProductComponent,
+    AddItemsComponent,
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

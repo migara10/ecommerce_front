@@ -1,0 +1,27 @@
+<div>
+    <div class="content1">
+        <div class="container">
+            <div class="item" *ngFor="let product of products; index as i;">
+                <div class="card_head"
+                    [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}">
+                    <div class="surprise-bubble"><span class="dress-card-heart">
+                            <i class="fas fa-heart"></i>
+                        </span><a href="#"> <span>More</span></a></div>
+                </div>
+                <div class="card_body">
+                    <div class="p_name">
+                        {{product.product_name}}
+                    </div>
+                    <div class="p_price">
+                        <span class="promo_price">RS: {{product.product_price}}.00</span>
+                        <span class="none_price">RS: {{product.product_price*10}}.00</span>
+                    </div>
+                    <div class="_btn">
+                        <button class="select_btn select_btn1" (click)="openChild(product)">Edit</button>
+                        <button class="select_btn select_btn2" (click)="openChild(product)">Publish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

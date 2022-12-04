@@ -75,7 +75,12 @@
     .shadow{
         height: 100%;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.596) !important;
+        background-color: rgba(0, 0, 0, 0.777) !important;
+        .body_animate{
+            h2{
+                font-size: 3em;
+            }
+        }
     }
     .animate_sqre {
         color: white;

@@ -69,6 +69,26 @@
             </div>
             <div class="forms">
                 <div>
+                    <label>Product Promotion</label>
+                    <input formControlName="isPromo" type="checkbox">
+                </div>
+            </div>
+            <div class="forms" *ngIf="productItem.value['isPromo']">
+                <div>
+                    <label>Product Price</label>
+                    <input formControlName="product_promo_price" type="text" placeholder="Promotion Price" autocomplete="off">
+                </div>
+                <div *ngIf="f['product_promo_price'].touched && f['product_promo_price'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['product_promo_price'].errors && f['product_promo_price'].errors['required']">Promotion Price is
+                        required.</div>
+                    <div *ngIf="f['product_promo_price'].errors && f['product_promo_price'].errors['product_promo_price']">Please
+                        enter Promotion Price.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="forms">
+                <div>
                     <!--  <input [class]="userDataForm.invalid?'submit_btn1':'submit_btn'" type="submit" value="Process Order" [disabled]="userDataForm.invalid"> -->
                     <input [class]="productItem.invalid?'submit_btn1':'submit_btn'" type="submit"
                         value="Update Product">

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ApiServiseService } from 'src/app/service/api-servise.service';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
@@ -13,6 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class EditProductPopupComponent implements OnInit {
   baseUri = this.api.API_URL;
   selectedFile: any;
+  onAdd = new EventEmitter();
 
   constructor(private router: Router, public dialogRef: MatDialogRef<EditProductPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private api: ApiServiseService, private toastr: ToastrService) { }
 
@@ -68,6 +69,7 @@ export class EditProductPopupComponent implements OnInit {
   }
   close() {
     this.dialogRef.close();
+    // this.onAdd.emit('test');
   }
 
 }

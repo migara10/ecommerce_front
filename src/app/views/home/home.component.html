@@ -43,7 +43,9 @@
 
 <div class="content1">
     <div class="container1">
-        <div class="item" *ngFor="let content of content1; index as i;" [ngStyle]="{'background-image': 'url(' + '../../../assets/img/home/' + content.imageuri +'.jpg'+')'}">
+        <div *ngFor="let content of content1; index as i;" class="item top"
+        (click)="getAllProducts(content.key)"
+            [ngStyle]="{'background-image': 'url(' + '../../../assets/img/home/' + content.imageuri +'.jpg'+')'}">
             <div class="card_body">
                 {{content.name}}
             </div>
@@ -51,7 +53,7 @@
     </div>
 </div>
 
-<div class="content2">
+<div class="content2 middle">
     <div class="container">
         <div class="item" *ngFor="let product of products; index as i;">
             <div class="card_head" [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}">
@@ -72,7 +74,9 @@
                 </div>
                 <button class="select_btn" (click)="openChild(product)">Select</button>
             </div>
-            <div *ngIf="product.isPromo" class="promo_label"><p>-{{showPromoPresentage(product)}}%</p></div>
+            <div *ngIf="product.isPromo" class="promo_label">
+                <p>-{{showPromoPresentage(product)}}%</p>
+            </div>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { ApiServiseService } from 'src/app/service/api-servise.service';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ItemComponent } from '../item/item.component'
 import { OwlCarousel } from 'ngx-owl-carousel/src/owl-carousel.component';
+import * as $ from "jquery";
 
 
 @Component({
@@ -65,10 +66,10 @@ export class HomeComponent implements OnInit {
     onTranslated: this.counter,
   }
   content1 = [
-    { name: "Shirts", imageuri: 'Shirts' },
-    { name: "T Shirts", imageuri: 'Tshirts' },
-    { name: "Shorts", imageuri: 'Shorts' },
-    { name: "Trousers", imageuri: 'Trousers' },
+    { name: "Shirts", imageuri: 'Shirts', key: 'shirt' },
+    { name: "T Shirts", imageuri: 'Tshirts', key: 'tshirt' },
+    { name: "Shorts", imageuri: 'Shorts', key: 'short' },
+    { name: "Trousers", imageuri: 'Trousers', key: 'trouser' },
   ]
   @ViewChild('owlElement1', { static: false }) owlElement1: any;
   isChild: Boolean = false;
@@ -82,15 +83,31 @@ export class HomeComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    /* $(document).ready(function () {
-      var classList = $(".active").attr("class");
-      console.log(classList)
-      $(".active .banner").addClass("animate_sqre");
-      $(".cloned .banner").removeClass("animate_sqre");
-    }); */
+    this.getAllProducts("");
 
-    this.getAllProducts();
+    /* const el = $('#does-not-exist');
+    const result1 = el?.offset()?.top; */
+
+    $(document).ready(function () {
+      $('div.top').click(function () {
+        $('html, body').animate({
+          scrollTop: $("div.middle").offset()?.top
+        }, 1000)
+      }),
+        $('div.middle').click(function () {
+          $('html, body').animate({
+            scrollTop: $("div.bottom").offset()?.top
+          }, 1000)
+        }),
+        $('div.bottom').click(function () {
+          $('html, body').animate({
+            scrollTop: $("div.top").offset()?.top
+          }, 1000)
+        })
+    });
   }
+
+
   counter(event: any) {
     var element = event.target;
     var items = event.item.count;
@@ -122,8 +139,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  getAllProducts() {
-    this.api.getresponse("get", "product", {})
+  getAllProducts(key: any) {
+    this.api.getresponse("get", `product?key=${key}`, {})
       .subscribe(res => {
         this.products = res.data;
       },
@@ -131,6 +148,15 @@ export class HomeComponent implements OnInit {
 
       )
   }
+  /* getAllProductsByKey() {
+    this.api.getresponse("get", `product?key=${this.limit}`, {})
+      .subscribe(res => {
+        this.products = res.data;
+      },
+        err => console.log(err)
+
+      )
+  } */
   openChild(product: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = product;

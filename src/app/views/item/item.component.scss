@@ -75,7 +75,7 @@
                                 cursor: pointer;
                                 position: relative;
                                 z-index: 20 !important;
-                                margin:0px 3px;
+                                margin: 0px 3px;
                             }
                         }
                     }
@@ -120,6 +120,34 @@
                     padding: 12px 24px;
                 }
             }
+        }
+    }
+    @media (max-width: 576px) {
+        display: block;
+        position: relative;
+        .item {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+        }
+        .row_2 {
+            width: 100%;
+            .close_bar {
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                .close_btn {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            .block {
+                padding-bottom: 24px;
+            }
+            
         }
     }
 }

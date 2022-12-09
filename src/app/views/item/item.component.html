@@ -33,7 +33,7 @@
                     </div>
                     <div class="input_qty" *ngIf="isSelect">
                         <div class="item_price">
-                            Total Price - Rs {{selectQty*data.product_price}}.00
+                            Total Price - Rs {{data.isPromo?selectQty*data.product_promo_price:selectQty*data.product_price}}.00
                         </div>
                         <div class="number">
                             <input type="text" [(ngModel)]="selectQty" disabled><br>

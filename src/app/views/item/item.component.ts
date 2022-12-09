@@ -24,7 +24,7 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.data.productbyItem.filter((data: any) => data.item_qty != 0);
-    this.items.sort((a:any, b:any) => (a.item_id.split('/')[1]) - (b.item_id.split('/')[1]));
+    this.items.sort((a: any, b: any) => (a.item_id.split('/')[1]) - (b.item_id.split('/')[1]));
   }
 
   ngOnChanges() {
@@ -36,7 +36,7 @@ export class ItemComponent implements OnInit {
     this.selectQty = 1;
     this.maxLength = item.item_qty;
     this.isSelect = true;
-    $('#other-field').focus(function() {
+    $('#other-field').focus(function () {
       $('#other').prop("checked", true);
     });
   }
@@ -58,7 +58,7 @@ export class ItemComponent implements OnInit {
         const index = this.arr.findIndex((x: any) => x.data.item_id === this.selectedItem.item_id);
         // console.log(this.arr[index])
         const tempQty = this.arr[index].qty + qty;
-        const tempTotal = this.arr[index].unit_price*tempQty;
+        const tempTotal = this.arr[index].unit_price * tempQty;
         // console.log(this.maxLength)
         if (tempQty <= this.maxLength) {
           this.arr[index].qty = tempQty
@@ -73,8 +73,9 @@ export class ItemComponent implements OnInit {
           product_category: this.data.product_category,
           product_disc: this.data.product_disc,
           product_name: this.data.product_name,
-          unit_price: this.data.product_price,
-          total_price: (this.data.product_price * qty)
+          unit_price:
+            this.data.isPromo ? this.data.product_promo_price : this.data.product_price,
+          total_price: (this.data.isPromo ? this.data.product_promo_price * qty : this.data.product_price * qty)
 
         }
         this.arr.push(order);
@@ -88,9 +89,10 @@ export class ItemComponent implements OnInit {
         product_category: this.data.product_category,
         product_disc: this.data.product_disc,
         product_name: this.data.product_name,
-        unit_price: this.data.product_price,
-        total_price: (this.data.product_price * qty)
-        
+        unit_price:
+          this.data.isPromo ? this.data.product_promo_price : this.data.product_price,
+        total_price: (this.data.isPromo ? this.data.product_promo_price * qty : this.data.product_price * qty)
+
       }
       this.arr.push(order);
       localStorage.setItem('PendingOrder', JSON.stringify(this.arr));

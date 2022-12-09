@@ -1,5 +1,5 @@
 <!-- Header Section -->
-<header class="header" id="header">
+<!-- <header class="header" id="header">
    <nav *ngIf="isShow" class="navbar container">
       <a href="./index.html" class="brand"><img src="../../../assets/img/logo.jpg" alt=""></a>
       <div class="burger" id="burger">
@@ -25,5 +25,49 @@
          </div>
       </div>
    </nav>
-</header>
+</header> -->
+<nav *ngIf="isShow" class="navbar navbar-expand-sm navbar-light bg-transparent">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <!-- logo image -->
+   <a href="./index.html" class="navbar-brand" style="width:100px;height: 50px">
+      <img src="../../../assets/img/logo.jpg" alt="" style="width:100px;height: 50px">
+   </a>
+   <div class="icons1 form-inline my-2 my-lg-0">
+      <div>
+         <img src="assets/img/icons/search.png" alt="" class="search_icon">
+      </div>
+      <div (click)="getItemQty() ? openSideBar(): '' ">
+         <img src="assets/img/icons/cart.png" alt="" class="cart_icon">
+         <div *ngIf="getItemQty() > 0" class="qty_notificatn">{{getItemQty()}}</div>
+      </div>
+   </div>
 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item active p-md--md">
+            <a href="#" class="menu-link nav-link">Man</a>
+         </li>
+         <li class="nav-item">
+            <a href="#" class="menu-link nav-link" routerLink="/add_product">Add Product</a>
+         </li>
+         <li class="nav-item">
+            <a href="#" class="menu-link nav-link" routerLink="/view_order">View Orders</a>
+         </li>
+         <li class="nav-item">
+            <a href="#" class="menu-link nav-link" routerLink="/edit_product">Edit Product</a>
+         </li>
+      </ul>
+      <div class="icons form-inline my-2 my-lg-0">
+         <div>
+            <img src="assets/img/icons/search.png" alt="" class="search_icon">
+         </div>
+         <div (click)="getItemQty() ? openSideBar(): '' ">
+            <img src="assets/img/icons/cart.png" alt="" class="cart_icon">
+            <div *ngIf="getItemQty() > 0" class="qty_notificatn">{{getItemQty()}}</div>
+         </div>
+      </div>
+   </div>
+</nav>

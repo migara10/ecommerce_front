@@ -1,8 +1,4 @@
 <owl-carousel [options]="customOptions" [carouselClasses]="['owl-theme', 'sliding']" #owlElement1>
-    <!-- <a class="item">
-        <div class="banner" style="background-image: url(assets/img/banner/main.jpg);">
-        </div>
-    </a> -->
     <div class="banner ban3" style="background-image: url(assets/img/banner/main.jpg);">
         <div class="shadow">
             <div class="ani">
@@ -45,9 +41,17 @@
     </div>
 </owl-carousel>
 
-
-
 <div class="content1">
+    <div class="container1">
+        <div class="item" *ngFor="let content of content1; index as i;" [ngStyle]="{'background-image': 'url(' + '../../../assets/img/home/' + content.imageuri +'.jpg'+')'}">
+            <div class="card_body">
+                {{content.name}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content2">
     <div class="container">
         <div class="item" *ngFor="let product of products; index as i;">
             <div class="card_head" [ngStyle]="{'background-image': 'url(' + baseUri  + product.product_imageuri +')'}">
@@ -59,12 +63,16 @@
                 <div class="p_name">
                     {{product.product_name}}
                 </div>
-                <div class="p_price">
+                <div *ngIf="product.isPromo" class="p_price">
+                    <span class="promo_price">RS: {{product.product_promo_price}}.00</span>
+                    <span class="none_price">RS: {{product.product_price}}.00</span>
+                </div>
+                <div *ngIf="!product.isPromo" class="p_price">
                     <span class="promo_price">RS: {{product.product_price}}.00</span>
-                    <span class="none_price">RS: {{product.product_price*10}}.00</span>
                 </div>
                 <button class="select_btn" (click)="openChild(product)">Select</button>
             </div>
+            <div *ngIf="product.isPromo" class="promo_label"><p>-{{showPromoPresentage(product)}}%</p></div>
         </div>
     </div>
 </div>

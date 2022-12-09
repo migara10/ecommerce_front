@@ -1,83 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
-/* .banner {
-    height: 60vh;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    display: none;
-    .shadow {
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.332) !important;
-        .block1 {
-            display: flex;
-            align-items: center;
-            height: 85%;
-            .heading {
-                color: white;
-                font-size: 3em;
-                font-family: "Lato", sans-serif;
-                font-weight: 700;
-                display: flex;
-                padding-left: 25%;
-                align-items: center;
-            }
-        }
-        .block2 {
-            height: 15%;
-            .hr_bar {
-                height: 100%;
-                background: white;
-                width: 80%;
-                border-top-right-radius: 40px;
-                .block1 {
-                    height: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 12px 96px;
-                    ._row {
-                        height: 100%;
-                        display: flex;
-                        .icon {
-                            margin-right: 24px;
-                            img {
-                                width: 20px;
-                                height: 20px;
-                                background: rgba(252, 185, 146, 0.473);
-                                padding: 6px;
-                                border-radius: 5px;
-                            }
-                        }
-                        .content {
-                            height: 100%;
-                            .main {
-                                color: black;
-                                font-size: 1.1em;
-                            }
-                            p {
-                                color: gray;
-                                margin: 6px 0px;
-                                font-size: 0.9em;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-} */
 .banner {
+    position: relative;
+    top: -10px;
     height: 70vh;
     width: 100%;
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
-    .shadow{
+    .shadow {
         height: 100%;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.777) !important;
-        .body_animate{
-            h2{
+        .body_animate {
+            h2 {
                 font-size: 3em;
             }
         }
@@ -108,32 +43,9 @@
             top: 50%;
         }
     }
-    .ani{
+    .ani {
         opacity: 0;
     }
-
-    /* @keyframes example {
-        0% {
-            left: 0px;
-            top: 0px;
-        }
-        25% {
-            left: 200px;
-            top: 0px;
-        }
-        50% {
-            left: 200px;
-            top: 200px;
-        }
-        75% {
-            left: 0px;
-            top: 200px;
-        }
-        100% {
-            left: 0px;
-            top: 0px;
-        }
-    } */
     .shadow {
         height: 100%;
         background-color: rgba(0, 0, 0, 0.332) !important;
@@ -141,6 +53,60 @@
 }
 
 .content1 {
+    .container1 {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0px 12px;
+        margin-top: 48px;
+        .item {
+            height: 375px;
+            width: 100%;
+            flex: 1 1 23%;
+            max-width: 23%;
+            box-shadow: 0 3px 6px #888;
+            width: 100%;
+            border-radius: 7px 7px 0 0;
+            margin: 0px 1%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            .card_body {
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5) !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 2em;
+            }
+        }
+    }
+    @media (max-width: 830px) {
+        .container1 {
+            .item {
+                flex: 1 1 48%;
+                max-width: 48%;
+                margin: 1%;
+            }
+        }
+    }
+    @media (max-width: 600px) {
+        .container1 {
+            .item {
+                flex: 1 1 98%;
+                max-width: 98%;
+                height: 400px;
+                .card_head {
+                    height: 300px;
+                }
+            }
+        }
+    }
+}
+
+.content2 {
     .container {
         display: flex;
         flex-wrap: wrap;
@@ -254,6 +220,20 @@
                     position: absolute;
                     bottom: 3%;
                     left: 5%;
+                }
+            }
+            .promo_label {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                background-color: red;
+                width: 40px;
+                height: 20px;
+                p {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
                 }
             }
         }

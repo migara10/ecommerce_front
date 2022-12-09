@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     touchDrag: false,
     pullDrag: false,
     autoplay: true,
-    autoplayTimeout:4000,
+    autoplayTimeout: 4000,
     dots: false,
     navSpeed: 700,
     navText: ['', ''],
@@ -62,8 +62,14 @@ export class HomeComponent implements OnInit {
     },
     nav: true,
     onInitialized: this.counter,
-    onTranslated: this.counter
+    onTranslated: this.counter,
   }
+  content1 = [
+    { name: "Shirts", imageuri: 'Shirts' },
+    { name: "T Shirts", imageuri: 'Tshirts' },
+    { name: "Shorts", imageuri: 'Shorts' },
+    { name: "Trousers", imageuri: 'Trousers' },
+  ]
   @ViewChild('owlElement1', { static: false }) owlElement1: any;
   isChild: Boolean = false;
   currentItem: any;
@@ -93,7 +99,6 @@ export class HomeComponent implements OnInit {
       item = item - items
     }
     var className = `.owl-item .ban${item}`;
-    console.log(className)
     $(`${className} .ani`).addClass("animate_sqre");
     for (let i = 1; i <= event.item.count; i++) {
       if (i != item) {
@@ -132,6 +137,10 @@ export class HomeComponent implements OnInit {
     dialogConfig.width = '800px';
     dialogConfig.height = '500px';
     this.dialog.open(ItemComponent, dialogConfig);
+  }
+  showPromoPresentage(item: any) {
+    let temp = (item.product_price - item.product_promo_price) / item.product_price * 100
+    return temp.toFixed(0)
   }
 }
 

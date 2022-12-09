@@ -146,6 +146,29 @@
             }
         }
     }
+    @media (max-width: 576px) {
+        display: block;
+        ._row1 {
+            width: 100%;
+            margin: 0;
+            justify-content: center;
+            .block1 {
+                padding: 12px 24px;
+                width: 100%;
+                margin: 0;
+            }
+        }
+        ._row2 {
+            width: 100%;
+            margin: 0;
+            justify-content: center;
+            .block1 {
+                padding: 12px 24px;
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
 }
 
 .d_none {

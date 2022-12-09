@@ -6,7 +6,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiServiseService {
-  public API_URL = isDevMode() ? "http://localhost:3000/" : ""
+  public API_URL = isDevMode() ? "http://192.168.8.145:3000/" : ""
   private url = 'https://reqres.in/api/users';
   // private url = 'https://jsonplaceholder.typicode.com/todos';
 

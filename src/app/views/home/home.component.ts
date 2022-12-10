@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ItemComponent } from '../item/item.component'
 import { OwlCarousel } from 'ngx-owl-carousel/src/owl-carousel.component';
 import * as $ from "jquery";
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -79,11 +80,12 @@ export class HomeComponent implements OnInit {
   baseUri = this.api.API_URL;
 
 
-  constructor(private api: ApiServiseService, private dialog: MatDialog) {
+  constructor(private spinner: NgxSpinnerService, private api: ApiServiseService, private dialog: MatDialog) {
 
   }
   ngOnInit(): void {
     this.getAllProducts("");
+    this.spinner.show();
 
     /* const el = $('#does-not-exist');
     const result1 = el?.offset()?.top; */
@@ -140,11 +142,17 @@ export class HomeComponent implements OnInit {
   }
 
   getAllProducts(key: any) {
+    this.spinner.show();
     this.api.getresponse("get", `product?key=${key}`, {})
       .subscribe(res => {
         this.products = res.data;
+        this.spinner.hide();
+
       },
-        err => console.log(err)
+        err => {
+          this.spinner.hide();
+        }
+        
 
       )
   }

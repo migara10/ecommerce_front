@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,7 @@ import { EditProductComponent } from './order/edit-product/edit-product.componen
 import { EditProductPopupComponent } from './order/edit-product-popup/edit-product-popup.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OwlModule } from 'ngx-owl-carousel';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import { OwlModule } from 'ngx-owl-carousel';
     EditProductPopupComponent
   ],
   imports: [
-BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -50,7 +51,10 @@ BrowserModule,
     MatCardModule,
     ToastrModule.forRoot(), // ToastrModule added
     NgxPaginationModule,
+    NgxSpinnerModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ApiServiseService],
   bootstrap: [AppComponent]
 })

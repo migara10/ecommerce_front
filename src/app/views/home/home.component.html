@@ -43,8 +43,7 @@
 
 <div class="content1">
     <div class="container1">
-        <div *ngFor="let content of content1; index as i;" class="item top"
-        (click)="getAllProducts(content.key)"
+        <div *ngFor="let content of content1; index as i;" class="item top" (click)="getAllProducts(content.key)"
             [ngStyle]="{'background-image': 'url(' + '../../../assets/img/home/' + content.imageuri +'.jpg'+')'}">
             <div class="card_body">
                 {{content.name}}

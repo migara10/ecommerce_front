@@ -16,7 +16,6 @@ import { MaterialModule } from './material.module';
 import { ToastrModule } from 'ngx-toastr';
 import { MatCardModule } from '@angular/material/card';
 import { AddProductComponent } from './order/add-product/add-product.component';
-import { AddItemsComponent } from './order/add-items/add-items.component';
 import { EditProductComponent } from './order/edit-product/edit-product.component';
 import { EditProductPopupComponent } from './order/edit-product-popup/edit-product-popup.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -32,7 +31,6 @@ import { ProductComponent } from './show/product/product.component';
     ProductSidebarComponent,
     CheckoutComponent,
     AddProductComponent,
-    AddItemsComponent,
     EditProductComponent,
     EditProductPopupComponent,
     ProductComponent,

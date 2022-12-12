@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
-import { CheckoutComponent } from './views/checkout/checkout.component';
-import { AddProductComponent } from './order/add-product/add-product.component';
-import { EditProductComponent } from './order/edit-product/edit-product.component';
+import { CheckoutComponent } from './views/checkout/checkout.component';import { EditProductComponent } from './order/edit-product/edit-product.component';
 import { EditProductPopupComponent } from './order/edit-product-popup/edit-product-popup.component';
 import { ProductComponent } from './show/product/product.component';
 
@@ -25,12 +23,6 @@ const routes: Routes = [
     pathMatch: 'full',
     component: CheckoutComponent,
     data: { isShow: false },
-  },
-  {
-    path: 'add_product',
-    pathMatch: 'full',
-    data: { isShow: false },
-    component: AddProductComponent,
   },
   {
     path: 'edit_product',
